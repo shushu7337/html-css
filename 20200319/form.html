@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單練習</title>
+</head>
+<body>
+    <fieldset>
+        <legend>表單介紹</legend>
+        <!-- 如果表單需要設計傳檔案，必須持有屬性 method="post" enctype="multipart/form-data"-->
+        <form method="post" enctype="multipart/form-data">
+            <table align="center">
+                <tr>
+                    <td width="100">帳號:</td>
+                    <td><input type="name" name="acc" ></td>
+                </tr>
+                <tr>
+                    <td>密碼:</td>
+                    <td><input type="password" name="pwd"></td>
+                </tr>
+                <tr>
+                    <td>性別:</td>
+                    <td><input type="radio" name="sex" value="0" id="sexb">
+                        <label for="sexb">男</label>
+                        <input type="radio" name="sex" value="1" id="sexg">
+                        <label for="sexg">女</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>語言:</td>
+                    <td>
+                        <input type="checkbox" name="like[]" value="" id="j">
+                        <label for="j">日文</label>
+                        <input type="checkbox" name="like[]" value="" id="e">
+                        <label for="e">英文</label>
+                        <input type="checkbox" name="like[]" value="" id="c">
+                        <label for="c">中文</label>
+                        <input type="checkbox" name="like[]" value="" id="f">
+                        <label for="f">法文</label>
+                        <input type="checkbox" name="like[]" value="" id="d">
+                        <label for="d">德文</label>
+                        <input type="checkbox" name="like[]" value="" id="s">
+                        <label for="s">西班牙文</label>
+                        <input type="checkbox" name="like[]" value="" id="p">
+                        <label for="p">葡萄牙文</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>所在地:</td>
+                    <td>
+                        <select name="location">
+                            <option value="none">請選擇</option>
+                            <option value="TAI">台灣</option>
+                            <option value="JAP">日本</option>
+                            <option value="CHA">中國大陸</option>
+                            <option value="RUS">俄羅斯</option>
+                            <option value="SHI">新加坡</option>
+                            <option value="MAY">馬來西亞</option>
+                            <option value="PHI">菲律賓</option>
+                            <option value="NWZ">紐西蘭</option>
+                            <option value="US">美國</option>
+                            <option value="UK">英國</option>
+                            <option value="FRA">法國</option>
+                            <option value="GER">德國</option>
+                            <option value="ITA">義大利</option>
+                            <option value="PHE">芬蘭</option>
+                            <option value="SWI">瑞士</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>檔案</td>
+                    <td><input type="file" name="pic"></td>
+                </tr>
+                <tr>
+                    <td>連絡電話</td>
+                    <td><input type="tel" name="phone" id=""></td>
+                </tr>
+                <tr>
+                    <td>聯絡信箱</td>
+                    <td><input type="email" name="e-mail" id="" required></td>
+                    <!-- type 屬性若給予相對應的性質，加上required HTML5即會檢查 -->
+                </tr>
+                
+                <tr>
+                    <td>留言訊息</td>
+                    <td><textarea name="info" cols="30" rows="5">請輸入訊息</textarea></td>
+                </tr>
+            </table>
+                    <hr>
+                    <center>
+                        <input type="submit" value="送出">
+                        <input type="reset" value="重置">
+                    </center>
+                
+            
+     </form>
+    </fieldset>
+</body>
+</html>

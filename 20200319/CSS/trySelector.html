@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 選擇器</title>
+    <style>
+        h1 {
+            color: red;
+        }
+
+        .clrpink {
+            color: rgb(72, 60, 177);
+        }
+
+        .small {
+            font-size: 20px;
+        }
+
+        #green {
+            color: green;
+        }
+        #green, .clrpink{
+            background-color: rgb(185, 64, 185);
+        }
+        h2.blue{
+            color: rgb(16, 50, 246);
+        }
+
+        div p{
+            color: rgba(67, 187, 218, 0.952);
+        }
+        div.goldp>p{    
+            color: goldenrod;
+        }
+        /* div.goldp p{
+            color: rgb(47, 0, 255);
+        } */
+        /* 已div.goldp p & div.goldp>p空白的地方:子子孫孫;有>只有兒子 */
+        
+    </style>
+</head>
+
+<body>
+    <h1>Lorem ipsum dolor sit.</h1>
+    <h1 class="clrpink">Lorem ipsum dolor sit.</h1>
+    <h1 class="clrpink small">Lorem ipsum dolor sit.</h1>
+    <h1 class="small">Lorem ipsum dolor sit.</h1>
+    <h1 id="green">Lorem ipsum dolor sit.</h1>
+    <h1 class="blue">Lorem ipsum dolor sit.</h1>
+    <h2 class="blue">Lorem ipsum dolor sit.</h2>
+
+    <p>Lorem ipsum dolor sit.</p>
+
+    <div>
+        <p>Lorem ipsum dolor sit.</p>
+        <div class="goldp">
+            <p>Lorem ipsum dolor sit.</p>
+            <div>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>
