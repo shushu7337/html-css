@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG</title>
+    <style>
+        div{
+            width: 400px;
+            height: 300px;
+    
+            /*
+             background-color: red;
+            background-image: url("https://picsum.photos/120/120/?random=1");
+            background-repeat: no-repeat;  */
+            
+            /* 內容區 */
+            background: rgb(197, 240, 243) url("https://picsum.photos/120/120/?random=1") no-repeat;
+            
+
+            /* padding區 */
+            border: 50px solid #f7c65cea;
+            /* background-origin 設定基準值 */
+            padding:50px;
+            /* 以padding為定位點，可更改 */
+            /* background-origin: padding-box; */
+            background-clip: content-box;
+        }
+        .demo0{
+            background-image: url("https://picsum.photos/60/90/?random=1");
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="demo0"></div>
+    <hr>
+    
+</body>
+</html>
