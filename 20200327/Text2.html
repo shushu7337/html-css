@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Break</title>
     <style>
-        
+        /* normal不用特地編寫，直接使用預設即可 */
+        /* p.demo1{
+            word-break: normal;
+        } */
         p.demo2{
             word-break: keep-all;
-            /* 保留單字不被特別切斷，除了"-"符號可切斷 */
+            /* 保留單字不被特別切斷，除了"-"跟"."符號可切斷 */
         }
         p.demo3{
             word-break: break-all;
@@ -20,14 +23,13 @@
             /* 前兩者的綜合，除非遇到整個單字已塞滿空間也塞不下才會切斷 */
         }
         p{
-            width:10rem;
+            width:8rem;
             border:1px solid #999999; 
         }
     </style>
 </head>
 <body>
     <p class="demo1">
-        
         <strong>How did the White House react?</strong> <br>
         Asked about the latest figures at a White House briefing on Thursday afternoon, President Trump said it was "a tribute to the amount of testing that we're doing".
 
