@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+    <style>
+        ul.demo1{
+            /* list-style-type: square; */
+            list-style-image: url("coronavirus.png");
+        }
+        ul.demo2{
+            background-color: rgb(237, 100, 123);
+            font-size: 0;
+            /* list-style-type: none; */
+        }
+        .demo2>li{
+            background-color: rgb(13, 65, 28);
+            display: inline-block;
+            /* font-size: 1rem; */
+            /* padding: 10px; */
+            /* margin-right: -4px;    解決段行*/
+        }
+        .demo a{
+            background-color:lightgreen;
+            text-decoration: none;
+            padding: 10px;
+            /* display: inline-block; */
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span>Loremipsumdolor</span> <span>sitametconsec</span><span>teturadipisicingelit.</span>  </p>
+    <!-- ul>(li>a)*4 -->
+    <!--根據31行的概念 一個ul即為一個block 而li與li間的斷行會導致間隔的產生，弄要解決段行問題:(1.可一次寫完不斷行)(3.使用margin-right: 直接縮編想要的px數)(4.-->
+    <ul class="demo2">
+        <li><a href="#">回首頁</a></li>
+        <li><a href="#">產品介紹</a></li>
+        <li><a href="#">客戶案例</a></li>
+        <li><a href="#">聯絡我們</a></li>
+    </ul>
+    <hr>
+    <!-- ul>li{$$$}*5 -->
+    <ul start="5" class="demo1">
+        <li>001</a></li>
+        <li>002</a></li>
+        <li>003</a></li>
+        <li>004</a></li>
+        <li>005</a></li>
+    </ul>
+    <!-- ol>li{$$$}*5 -->
+    <ol>
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ol>
+</body>
+</html>
