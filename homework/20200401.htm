@@ -10,12 +10,15 @@
     />
   </head>
   <style>
+    tr.cam{
+        font-size: 0.3rem;
+    }
     body {
 
       margin: 0em;
       font-family: "Baloo Thambi 2", "Noto Sans TC";
       font-weight: 200;
-      line-height: 1.2em;
+      line-height: 1.3em;
       color: #e9eb7a;
       background: linear-gradient(
         315deg,
@@ -24,14 +27,15 @@
         rgb(14, 15, 19) 100%
       );
     }
+    
     h1 {
-      color: rgb(158, 163, 79);
+      color: rgb(120, 221, 159);
       font-size: 1.8rem;
       text-align: center;
       text-shadow: 1.5px 1.5px 3px rgba(56, 97, 69, 0.877);
     }
     h2 {
-      font-size: 1rem;
+      font-size: 1.4rem;
       position: relative;
       left:10px;
       color: rgb(198, 219, 240);
@@ -51,19 +55,20 @@
         rgb(53, 19, 19),
         rgba(110, 106, 106, 0.37) 50%,
         rgb(194, 192, 101) 100%
-      );
-      height: 1px;
+      );height: 1px;
     }
     tr:nth-of-type(even) {
       background: lightblue;
     }
+    
     tr:hover {
-      background: repeating-linear-gradient(to right, rgb(103, 104, 80) 100%, rgb(126, 120, 85) 80%, rgb(91, 97, 73))40%;
+      background: repeating-linear-gradient(to right, rgb(103, 104, 80) 110%, rgb(126, 120, 85) 80%, rgb(91, 97, 73))40%;
     }
     td {
       text-align: center;
-      font-size: 0.8rem;
-      height: 1rem;
+      font-size: 1.2rem;
+      height: 1.2rem;
+      width: 0.3rem;
     }
   </style>
   <body>
@@ -198,9 +203,22 @@
         <h2>主相機</h2>
         <hr />
         <tr>
-          <td colspan="3"><img width="100%" src="./相機圖.png" alt=""></td>
-          
+          <td colspan="3"><img width="100%" src="/homework/相機圖.png" alt=""></td>
         </tr>
       </table>
+    <table>
+        <tr class="cam">
+            <td>4鏡頭</td>
+            <td>3鏡頭</td>
+            <td>4鏡頭</td>
+        </tr>
+    </table>
+    <table>
+        <tr class="cam">
+            <td>200萬畫素超廣角鏡頭 (光圈: F2.2)<br>10800萬畫素廣角鏡頭 (PDAF, 光圈: F1.8)<br>4800萬畫素遠距鏡頭 (PDAF, 光圈: F3.5)<br>VGA景深鏡頭</td>
+            <td>1200萬畫素超廣角鏡頭 (光圈: F2.2)<br>1200萬畫素廣角鏡頭 (Super Speed Dual Pixel AF, 光圈: F1.8)<br>6400萬畫素遠距鏡頭 (PDAF, 光圈: F2.0)</td>
+            <td>1200萬畫素超廣角鏡頭 (光圈: F2.2)<br>1200萬畫素廣角鏡頭 (Super Speed Dual Pixel AF, 光圈: F1.8)<br>6400萬畫素遠距鏡頭 (PDAF, 光圈: F2.0)<br>VGA景深鏡頭</td>
+        </tr>
+    </table>
   </body>
 </html>

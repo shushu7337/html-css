@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: turquoise;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .bigbox{
+            width: 300px;
+            height: 240px;
+            background-color: #ccc;
+            border: 1px solid #000;
+            font-size: 0;
+        }
+        /* margin:calc(50vh - 121px) auto; */
+        .abs{
+            background-color: lightsalmon;
+            position: absolute;
+            left: -25px;
+            top: 50px;
+            z-index: 1000;
+        }
+        .rel{
+            background-color: lightskyblue;
+            position: relative;
+            left: -90px;
+            top: 25px;
+            z-index: 999;
+        }
+        .fix{
+            background-color: yellowgreen;
+            position: fixed;
+            left: 0;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- div.bigbox>div.box{$$}*20 -->
+    <div class="bigbox">
+        <dib class="box">01</dib>
+        <dib class="box">02</dib>
+        <dib class="box">03</dib>
+        <dib class="box">04</dib>
+        <dib class="box">05</dib>
+        <dib class="box">06</dib>
+        <dib class="box rel">07</dib>
+        <dib class="box">08</dib>
+        <dib class="box abs">09</dib>
+        <dib class="box">10</dib>
+        <dib class="box">11</dib>
+        <dib class="box">12</dib>
+        <dib class="box fix">13</dib>
+        <dib class="box">14</dib>
+        <dib class="box">15</dib>
+        <dib class="box">16</dib>
+        <dib class="box">17</dib>
+        <dib class="box">18</dib>
+        <dib class="box fix" style="left: 25px;top: 25px">19</dib>
+        <dib class="box">20</dib>
+    </div>
+</body>
+</html>
