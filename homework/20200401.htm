@@ -11,6 +11,7 @@
   </head>
   <style>
     body {
+
       margin: 0em;
       font-family: "Baloo Thambi 2", "Noto Sans TC";
       font-weight: 200;
@@ -19,11 +20,10 @@
       background: linear-gradient(
         315deg,
         rgba(5, 6, 7, 0.342) 10%,
-        rgb(18, 21, 26) 60%,
-        rgb(14, 15, 19) 90%
+        rgb(18, 21, 26) 70%,
+        rgb(14, 15, 19) 100%
       );
     }
-
     h1 {
       color: rgb(158, 163, 79);
       font-size: 1.8rem;
@@ -32,15 +32,17 @@
     }
     h2 {
       font-size: 1rem;
-      text-align: left;
+      position: relative;
+      left:10px;
       color: rgb(198, 219, 240);
       text-shadow: 1.5px 1.5px 2px rgba(12, 116, 116, 0.897);
     }
     table {
+      table-layout: fixed; /*平均分配寬度*/
       width: 100%;
       font-size: 1rem;
       border: 0px solid rgb(143, 233, 210);
-      text-align: cente;
+      text-align: center;
     }
     hr {
       border: 2px;
@@ -52,21 +54,12 @@
       );
       height: 1px;
     }
-
     tr:nth-of-type(even) {
       background: lightblue;
     }
     tr:hover {
-      background: repeating-linear-gradient(
-          to right,
-          rgb(103, 104, 80) 100%,
-          rgb(126, 120, 85) 80%,
-          rgb(91, 97, 73)
-        )
-        40%;
-
+      background: repeating-linear-gradient(to right, rgb(103, 104, 80) 100%, rgb(126, 120, 85) 80%, rgb(91, 97, 73))40%;
     }
-
     td {
       text-align: center;
       font-size: 0.8rem;
@@ -89,13 +82,14 @@
     <table>
       <tr>
         <td>
-          6.9吋Quad HD+ Dynamic AMOLED 2X (3200x1440) 511ppi<br />O極限全螢幕
+          6.9吋Quad HD+ Dynamic AMOLED 2X <br>(3200x1440)<br> 511ppi<br />O極限全螢幕
         </td>
         <td>
-          6.2吋Quad HD+ Dynamic AMOLED 2X (3200x1440) 563ppi<br />O極限全螢幕
+          6.2吋Quad HD+ Dynamic AMOLED 2X <br>(3200x1440)<br>563ppi<br />O極限全螢幕
         </td>
         <td>
-          6.7吋Quad HD+ Dynamic AMOLED 2X (3200x1440) 525ppi<br />O極限全螢幕
+          6.7吋Quad HD+ Dynamic AMOLED 2X
+          <br>(3200x1440)<br>525ppi<br />O極限全螢幕
         </td>
       </tr>
     </table>
@@ -159,5 +153,54 @@
         <td>12GB RAM + 128GB</td>
       </tr>
     </table>
+
+    <table>
+        <h2>影片錄製</h2>
+        <hr />
+        <tr>
+          <td>8K UHD at 24fps <br>4K UHD at 60fps<br>1080p FHD at 60fps<br>720p HD at 30fps</td>
+          <td>8K UHD at 24fps <br>
+            4K UHD at 60fps<br>1080p FHD at 60fps<br>720p HD at 30fps</td>
+          <td>8K UHD at 24fps <br>
+            4K UHD at 60fps<br>1080p FHD at 60fps<br>720p HD at 30fps</td>
+        </tr>
+    </table>
+    <table>
+        <hr>
+        <tr>
+            <td>HDR 10+<br>景深特效攝影<br>超穩定動態攝影<br>遠距焦點收音<br>超慢動作攝影<br>慢動作攝影
+            </td>
+            <td>HDR 10+<br>景深特效攝影<br>超穩定動態攝影<br>遠距焦點收音<br>超慢動作攝影<br>慢動作攝影
+            </td>
+            <td>HDR 10+<br>景深特效攝影<br>超穩定動態攝影<br>遠距焦點收音<br>超慢動作攝影<br>慢動作攝影
+            </td>
+        </tr>
+      </table>
+      <table>
+        <h2>記憶體與內建儲存空間</h2>
+        <hr />
+        <tr>
+          <td>16GB RAM + 512GB (僅星空灰)<br>12GB RAM + 256GB</td>
+          <td>12GB RAM + 256GB</td>
+          <td>12GB RAM + 256GB</td>
+        </tr>
+      </table>
+      <table>
+        <h2>支援外接記憶卡</h2>
+        <hr />
+        <tr>
+          <td>支援外接microSD記憶卡</td>
+          <td>支援外接microSD記憶卡</td>
+          <td>支援外接microSD記憶卡</td>
+        </tr>
+      </table>
+      <table>
+        <h2>主相機</h2>
+        <hr />
+        <tr>
+          <td colspan="3"><img width="100%" src="./相機圖.png" alt=""></td>
+          
+        </tr>
+      </table>
   </body>
 </html>
