@@ -17,16 +17,18 @@
     }
     
     h1{ 
-        background-clip: radial-gradient(rgb(201, 116, 116),#fff,#fff);
-        /* color: rgb(232, 194, 243); */
+        
+        color: rgb(232, 194, 243);
         font-size: 1.8rem;
         text-align: center;
         text-shadow: 1px 1px 2px rgba(56, 97, 69, 0.877);
+        overflow: hidden;
+        animation: typing 4s;
     }
     h2{ 
         font-size: 1rem;
         text-align: left;
-        text-shadow: 1px 1px 1px rgba(12, 116, 116, 0.897);
+        text-shadow: 1px 1px 2px rgba(12, 116, 116, 0.897);
     }
     table{  width: 100%;
             font-size: 1rem;
@@ -38,16 +40,14 @@
         background:linear-gradient(to right,rgb(53, 19, 19),rgba(110, 106, 106, 0.37)50%,rgb(194, 192, 101) 100%);
         height: 1px;
     }
-    tr.odd{
-        background-color: royalblue;
-    }
+
     tr:nth-of-type(even){
             background: lightblue;
         }
-        tr:hover{
-            background:rgb(198, 211, 153);
+    tr:hover{
+        background:repeating-linear-gradient(to right,rgb(103, 104, 80) 100%,rgb(126, 120, 85) 80%,rgb(91, 97, 73)) 40%;
             
-        }
+    }
 
     td{
         text-align: center;
