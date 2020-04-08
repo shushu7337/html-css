@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>layout1.html</title>
+    <title>layout3將side 選單更換至右邊</title>
     <style>
-        /* 模擬左邊測選單內容 */
         .side{
             background: lightgreen;
-            /* 父空間給出來的20% */
             width: 20%;
-            float: left;
+            float: right;
         }
         /* 如果沒有注意的話.side的空間會吃掉main自身的20%掉，所以顯示出來只剩60% */
         .main{
             background: lightpink;
             width: 80%;
-            /* 可利用margin來推被吃掉的空間 */
-            margin-left: 20%;
-            /* overflow: hidden; */
         }
     </style>
 </head>
