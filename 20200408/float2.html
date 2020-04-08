@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float2.html</title>
+    <style>
+        /* 空間感註解 */
+        /* div{
+            border: 1px solid #000000;
+        } */
+        body{
+            margin: 0;
+        }
+        .container{
+            width: 960px;
+            background: lightcoral;
+            margin: 0 auto;
+            /* 使用overflow把空間算回來 */
+            /* overflow: hidden; */
+        }
+        .col{
+            box-sizing: border-box;
+            width: 300px;
+            border: 1px solid lightgreen;
+            padding: 50px;
+            margin: 10px;
+            /* 使用float就不用考慮都市傳說4px了 */
+            float: left ;
+
+            /* inline-block仍會有4px問題 */
+            /* display: inline-block; */
+        }
+        .clrbox{
+            width: 960px;
+            background: yellowgreen;
+            height: 50px;
+            margin: 0 auto;
+        }
+
+        /* 利用偽元素來清掉float效果 */
+        /* .container::after{
+            content: "";
+            clear: both;
+            display: block;
+        } */
+        .clear::before,.clear::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.container>div.col*3 -->
+    <div class="container clear">
+        <!-- 亦可使用<div class="container clear">來清除float效果(較常使用) -->
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsam harum delectus numquam! Perferendis, ipsam rem. At cupiditate repudiandae autem, sunt obcaecati recusandae praesentium amet rerum explicabo aperiam eos similique illo neque possimus porro veniam beatae dicta? Similique, illo quos totam dolores aspernatur sequi repellat eum, doloribus id aut quisquam!</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsam harum delectus numquam! Perferendis, ipsam rem. At cupiditate repudiandae autem, sunt obcaecati recusandae praesentium amet rerum explicabo aperiam eos similique illo neque possimus porro veniam beatae dicta? Similique, illo quos totam dolores aspernatur sequi repellat eum, doloribus id aut quisquam!</div>
+        
+        <div class="clear"><div class="clear:both"></div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsam harum delectus numquam! Perferendis, ipsam rem. At cupiditate repudiandae autem, sunt obcaecati recusandae praesentium amet rerum explicabo aperiam eos similique illo neque possimus porro veniam beatae dicta? Similique, illo quos totam dolores aspernatur sequi repellat eum, doloribus id aut quisquam!</div>
+        <!-- 類同overfloat可做空間重整，直接將float元素給關閉 -->
+        <!-- <div style="clear:both">123</div> -->
+    </div>
+    <div class="clrbox"></div>
+    
+</body>
+</html>
