@@ -18,20 +18,22 @@
             height: 500px;
            
             /* 預設值 */
-            justify-content: flex-start; /*控制主軸內的對齊方式*/
-            align-items: stretch;  /*控制叉軸的排列方式*/
+            justify-content: flex-start; /*控制主軸內的對齊方式, ex:flex-start,flex-end,center,space-between,space-around*/
+            align-items: stretch;  /*控制叉軸的排列方式,預設為全滿*/
             
             /*flex-flow: flex-direction flex-wrap*/
-            flex-flow: row nowrap; 
-            
+            flex-flow: row nowrap;
             /* flex-direction: row;  /*主軸的方向性為水平或垂直
             flex-wrap:nowrap;  item排列是否換行的條件 */
+
+            /*align-content  只有在wrap模式下才有意義*/
         }
 
         /* 子項目 flix-item */
         .red{
             background: lightpink;
             height: 100px;
+            align-self: center; /*獨立對子項目操作同align-items行為*/
         }
         .green{
             background: lightgreen;
@@ -48,6 +50,9 @@
 <body>
     <!-- div.container>div.item.rgb*3 -->
     <div class="container">
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
         <div class="item red">R</div>
         <div class="item green">G</div>
         <div class="item blue">B</div>
