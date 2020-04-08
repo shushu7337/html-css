@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX</title>
+    <style>
+        /* body{
+            margin: 0;
+        } */
+        .container{
+            background: lightgray;
+            padding: 10px;
+            /* 在flex空間裡用裡面無論甚麼標籤，它的空間分配皆為橫向，必須重新思考排列邏輯(各個標籤的影響皆會有不同) ------有點像inline-block的橫向排列方式*/
+            /* 在flex觀念裡高度會為齊高 */
+            display: flex;
+            /* flex預設在父容器給高度，子容器會占滿為優先除非有另外指定 */
+            height: 200px;
+        }
+        .red{
+            background: lightpink;
+            width: 50px;
+            height: 50px;
+        }
+        .green{
+            background: lightgreen;
+            padding: 10px;
+        }
+        .blue{
+            background: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.container>div.item.rgb*3 -->
+    <div class="container">
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
+        <div class="item red">R</div>
+        <div class="item green">G</div>
+        <div class="item blue">B</div>
+    </div>
+    
+</body>
+</html>

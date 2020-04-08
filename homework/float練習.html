@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>layouC都是float:left更改div 排序</title>
+    <title>layou練習</title>
     <style>
         /* div文字垂直置中
         1.使用line-height設與height同高度即可
@@ -32,6 +32,7 @@
             font-size: 3rem;
             font-family: "Microsoft JhengHei", Arial, sans-serif;
         } */
+
         .container{
             width: 1024px;
             height: 768px;
@@ -40,7 +41,35 @@
             font-size: 3rem;
             font-family: "Microsoft JhengHei", Arial, sans-serif;
             color: white;
+
+            /* 將元素定位置中 */
             
+            /*ver.1
+            
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto; */
+            
+            /* ver.2 
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform:translate: (-50%,-50%);
+            */
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* ver.1 */
+            /* height: calc(100vh - 16px); */
+            /* ver.2 */
+            margin: 0;
+            height: 100vh;
         }
         .header{
             background: rgb(0, 0, 0);
