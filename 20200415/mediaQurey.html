@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒體查詢</title>
+    <style>
+        @media (max-width:400px){
+            body{
+                background: lightpink;
+            }
+        }
+        @media (min-width:401px) and (max-width:599px){
+            body{
+                background: lightseagreen;
+            }
+        }
+        @media (min-width:600px) and (max-width:899px){
+            body{
+                background: lightyellow;
+            }
+        }
+        @media (min-width:900px) and (max-width:1099px){
+            body{
+                background: lightgray;
+            }
+        }
+        @media (min-width:1100px){
+            body{
+                background: orange;
+            }
+            .box{
+                width:45%;
+                float: left;
+            }
+        }
+        .body{
+            margin:0;
+        }
+        .box{
+            background: maroon;
+            width: 95%;
+            height: 50px;
+            margin: 2.5%;
+        }
+        /* @media screen and (min-width:480px){
+            body{
+                background: lightseagreen;
+                color: darkslategrey;
+            }
+        }
+        @media print,(max-width:700px){
+            body{
+                background: lightpink;
+                color: darksalmon;
+            }
+        } */
+
+    </style>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+</html>
