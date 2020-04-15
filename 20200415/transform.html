@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform.html</title>
+    <style>
+        body{
+            margin: 0;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .box{
+            width: 100px;
+            height:100px;
+            background: rgb(43, 131, 131);
+            line-height: 100px;
+            position: relative;
+        }
+        .box::after{
+            content: "AFter";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: darkred;
+            opacity: 0.9;
+            width: 100px;
+            height: 100px;
+            /* transform: translate(150%,50%); */
+
+            /* 如果要平移可直接將其中一數值設0 
+            transform: translate(0,50%);*/
+
+            /* 不能寫成 他只會讀到一個
+            transform:translateX:50%; 
+            transform:translateY:50%;
+            */
+            
+            /* 縮放 */
+            /* transform: translate(200%) scale(2.5); */
+            /* 如果需要倒影效果可將scale設為負值 */
+            /* transform: translateY(100%) scale(-1); */
+            background: linear-gradient(transparent, rgb(100, 172, 100)  );
+
+            /* 旋轉 */
+            /* transform: rotate(15deg);  單位deg不能省略 */
+            /* 精簡寫法 */
+            /* transform: translateY(100%) rotate(15deg)  scale(-1); */
+            
+            /* 歪斜 */
+            /* transform: skew(-30deg); */
+
+            /* 變形點 對偏移無效  變形點搭配rotate使用\*/
+            transform: rotate(30deg);
+            transform-origin: right bottom;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Before</div>
+</body>
+</html>
