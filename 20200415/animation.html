@@ -38,7 +38,7 @@ https://codepen.io/kaylolo/pen/KzLwmR
             /* animation-delay: 0s; */
             /* 播放次數 */
             /* animation-iteration-count: infinite; */
-            /* 循環方式 */
+            /* 循環方式 */  
             /* animation-direction: alternate; */
             /* 停留 */
             /* animation-fill-mode: forwards; */
@@ -192,6 +192,42 @@ https://codepen.io/kaylolo/pen/KzLwmR
                 box-shadow: 0px 0px 1rem 5px #f00, 0px 0px 1rem 15px #ff000000, inset 0px 0px 1rem 5px #f00;
             }
         }
+        .ani5{
+            width: 100px;
+            height: 50px;
+            background: darkorange;
+            border-radius: 7px;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ani5::after{
+            content: "";
+            background: gradient(135deg,
+            transparent 30%,
+            rgba(255, 255, 255, 1) 50%,
+            transparent 70%);
+            position: absolute;
+            right: -100%;
+            bottom: -100%;
+            left: -100%;
+            top: -100%;
+            opacity: 0.5;
+            transform: translateY(-100%);
+            animation: demo5 2s linear infinite ;
+        }
+        @keyframes demo5{
+            50%{
+                transform:translateX(0%);
+            }
+            70%{
+                transform: translateX(100%);
+            }
+            100%{
+                transform: translateX(100%);
+            }
+        }
         
     </style>
 </head>
@@ -200,5 +236,6 @@ https://codepen.io/kaylolo/pen/KzLwmR
     <div class="ani2">Butt</div>
     <div class="ani3">Loading</div>
     <div class="ani4">Shu</div>
+    <div class="ani5">Shu</div>
 </body>
 </html>
