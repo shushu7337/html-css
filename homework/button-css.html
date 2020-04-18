@@ -85,23 +85,47 @@
         .button.Ftwo:hover{
             border: 2px inset #fff;
         }
-        .button::after {
+        .buttonone {
+            width: 80px;
+            height: 20px;
+            margin: 2px;
+            line-height: 20px;
+            border: 1px solid #fff;
+            text-align: center;
+            position: relative;
+            overflow:hidden;
+            transition: all 0.2s ease-in 0s;
+            font-family: "微軟正黑體";
+            color: blanchedalmond;
+            font-size: small;
+        }
+        .buttonone::after {
             box-sizing: inherit;
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
+            
         }
-        .button::before {
-            box-sizing: inherit;
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .buttonone:hover::after{
+            animation: demo2 1s linear infinite ;
+            background: linear-gradient(135deg,
+            transparent 30%, rgba(255, 255, 255, 1) 50%,
+            transparent 70%);
+            transform: translateX(-100%);
         }
-        .button.Gone{
-            border: 1px dashed #FFF ;
+        @keyframes demo2{
+            50%{
+                transform:translateX(0%);
+            }
+            70%{
+                transform: translateX(100%);
+            }
+            100%{
+                transform: translateX(100%);
+            }
         }
+        
         
         .button.Gtwo{
             border: 2px inset #fff;
@@ -131,7 +155,7 @@
     <div class="Ftwo button">hover</div>
 </div>
 <div class=" container">
-    <div class="Gone button">hover</div>
+    <div class="Gone buttonone">hover</div>
     <div class="Gtwo button">hover</div>
     <div class="Hone button">hover</div>
     <div class="Htwo button">hover</div>
