@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button-css</title>
+    <style>
+        body{
+            margin: 0;
+            background: black;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            flex-wrap: wrap;
+            width: 100vw;
+            margin: 10 auto;
+            height: 15vh;
+            font-family: "微軟正黑體";
+            color: rgb(255, 206, 132);
+        }
+        
+        .button {
+            width: 80px;
+            height: 20px;
+            margin: 2px;
+            line-height: 20px;
+            border: 1px solid #fff;
+            text-align: center;
+            position: relative;
+            overflow:hidden;
+            transition: all 0.2s ease-in 0s;
+            font-family: "微軟正黑體";
+            color: blanchedalmond;
+            font-size: small;
+        }
+        
+        .button.Aone:hover{
+            transform: rotate(-5deg);
+        }
+        .button.Atwo:hover{
+            transform: rotate(5deg);
+        }
+        .button.Bone:hover{
+            opacity: 0.5;
+            background: #fff;
+        }
+        .button.Btwo:hover{
+            filter: blur(1px);
+        }
+
+        
+        .button.Cone:hover{
+            transform: rotate(15deg) scale(1.4);
+        }
+        .button.Ctwo:hover{
+            transform: scale(1.5);
+        }
+        .button.Done:hover{
+            opacity: 1;
+            background: #ffffff99;
+        }
+        .button.Dtwo:hover{
+            left: -10px;
+            width: 80px;
+        }
+        
+        .button.Eone:hover{
+            border-radius: 5px;
+        }
+        
+        .button.Etwo:hover{
+            border: 1px dotted #fff;
+        }
+        .button.Fone:hover{
+            border: 1px dashed #FFF ;
+        }
+        
+        .button.Ftwo:hover{
+            border: 2px inset #fff;
+        }
+        .button::after {
+            box-sizing: inherit;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .button::before {
+            box-sizing: inherit;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .button.Gone{
+            border: 1px dashed #FFF ;
+        }
+        
+        .button.Gtwo{
+            border: 2px inset #fff;
+        }
+       
+
+
+    </style>
+</head>
+<body>
+<div class=" container">
+    <div class="Aone button">hover</div>
+    <div class="Atwo button">hover</div>
+    <div class="Bone button">hover</div>
+    <div class="Btwo button">hover</div>
+</div>
+<div class=" container">
+    <div class="Cone button">hover</div>
+    <div class="Ctwo button">hover</div>
+    <div class="Done button">hover</div>
+    <div class="Dtwo button">hover</div>
+</div>
+<div class=" container">
+    <div class="Eone button">hover</div>
+    <div class="Etwo button">hover</div>
+    <div class="Fone button">hover</div>
+    <div class="Ftwo button">hover</div>
+</div>
+<div class=" container">
+    <div class="Gone button">hover</div>
+    <div class="Gtwo button">hover</div>
+    <div class="Hone button">hover</div>
+    <div class="Htwo button">hover</div>
+</div>
+
+</body>
+</html>
