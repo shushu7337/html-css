@@ -272,12 +272,12 @@
             bottom: 0;
             z-index: -1;
             margin: -4px;
-            
+            animation: an3 2s linear infinite;
         } 
-        .buttonan3.Jone:hover::after,::before{
-            
-            animation: an3 2s linear 1;
-            border: 2.5px solid #2ecc71;
+        .buttonan3.Jone:hover::after,.buttonan3.Jone:hover::before{
+            border: 2.5px solid transparent;
+            border-image: linear-gradient(to right, rgba(255, 95, 95, 0.836) 0%, rgb(43, 255, 0) 50%,rgba(39, 39, 230, 0.925)90%);
+            border-image-slice: 2;
         }
         @keyframes an3{
             /* clip: rect(top,right,bottom,left); */
@@ -300,41 +300,90 @@
             height: 20px;
             margin: 2px;
             line-height: 20px;
-            border: 2.5px solid transparent;
-            border-image: linear-gradient(to right, rgba(255, 95, 95, 0.836) 0%, rgb(43, 255, 0) 50%,rgba(39, 39, 230, 0.925)90%);
-            border-image-slice: 2;
+            background: #000;
             text-align: center;
             position: relative;
             color: blanchedalmond;
             font-family: 'Iceland';
         }
-        .buttonan4::after ,.buttonan4::before{
-            box-sizing: inherit;
-            content: '';
-            position: absolute;
-            border: 2px solid transparent;
-
-
-            
-        } 
         
-         .buttonan4.Jone:hover{
-            animation: an4 2s linear infinite;
+        .buttonan4::before{
+            content: '';
+            background:transparent;
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            width: 0;
+            height: 0;
+            border: 1px solid transparent;
+        } 
+        .buttonan4::after{
+            content: '';
+            background:transparent;
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            width: 0;
+            height: 0;
+            border: 1px solid transparent;
+        } 
+        .buttonan4.Jtwo:hover::before{
+            animation: an4 1s linear forwards;
+        }
+        .buttonan4.Jtwo:hover::after{
+            animation: an5 1s linear forwards;
         }
          @keyframes an4{
-            /* clip: rect(top,right,bottom,left); */
-            0%, 100%{
-                clip: rect(0px,88px,2px,0px);
+            0%{
+                width: 0;
+                height: 0;
+                border-top-color:#b6b6b6;
+                border-right-color:transparent;
+                border-bottom-color:transparent;
+                border-left-color:transparent;
             }
-            15%{
-                clip: rect(1px,2px,28px,0px);
+            50%{
+                width: 100%;
+                height: 0;
+                border-top-color:#b6b6b6;
+                border-right-color:#b6b6b6;
+                border-bottom-color:transparent;
+                border-left-color:transparent;
             }
-            40%{
-                clip: rect(26px,88px,28px,0px);
+            100%{
+                width: 100%;
+                height: 100%;
+                border-top-color:#b6b6b6;
+                border-right-color:#b6b6b6;
+                border-bottom-color:transparent;
+                border-left-color:transparent;
             }
-            70%{
-                clip: rect(0px,88px,28px,86px);
-            } 
+        }
+        @keyframes an5{
+            0%{
+                width: 0;
+                height: 0;
+                border-top-color:transparent;
+                border-right-color:transparent;
+                border-bottom-color:transparent;
+                border-left-color:b6b6b6;
+            }
+            50%{
+                width: 0;
+                height: 100%;
+                border-top-color:transparent;
+                border-right-color:transparent;
+                border-bottom-color:#b6b6b6;
+                border-left-color:#b6b6b6;
+            }
+            100%{
+                width: 100%;
+                height: 100%;
+                border-top-color:transparent;
+                border-right-color:transparent;
+                border-bottom-color:#b6b6b6;
+                border-left-color:#b6b6b6;
+            }
         }
         
 
