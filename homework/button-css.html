@@ -127,7 +127,6 @@
             overflow:hidden;
             transition: all 0.2s ease-in 0s;
             color: blanchedalmond;
-            font-size: small;
             font-family: 'Iceland';
             box-shadow: 0.2em 0.2em 0 0 rgba(144, 252, 134, 0.603),inset 0.3em 0.3em 0 rgba(144, 252, 134, 0.603);
         }
@@ -141,7 +140,6 @@
             position: relative;
             overflow:hidden;
             color: blanchedalmond;
-            font-size: small;
             font-family: 'Iceland';
             
         }
@@ -181,7 +179,6 @@
             overflow:hidden;
             transition: all 0.2s ease-in 0s;
             color: blanchedalmond;
-            font-size: small;
             font-family: 'Iceland';
         }
         .buttonan1::after {
@@ -224,10 +221,9 @@
             overflow:hidden;
             transition: all 0.2s ease-in 0s;
             color: blanchedalmond;
-            font-size: small;
             font-family: 'Iceland';
         }
-        .buttonan2::after ,.buttonan2::before{
+        .buttonan2::after{
             box-sizing: inherit;
             content: '';
             position: absolute;
@@ -237,8 +233,6 @@
             bottom: -0.5rem;
             font-family: 'Iceland';
             z-index: -1;
-
-            
         }
         .buttonan2.Itwo:hover::after{
             animation: an2 1s linear ;
@@ -258,6 +252,91 @@
             }
         }
 
+        .buttonan3 {
+            width: 80px;
+            height: 20px;
+            margin: 2px;
+            line-height: 20px;
+            border: 1px solid #fff;
+            text-align: center;
+            position: relative;
+            color: blanchedalmond;
+            font-family: 'Iceland';
+        }
+         .buttonan3::after ,.buttonan3::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            margin: -4px;
+            
+        } 
+        .buttonan3.Jone:hover::after,::before{
+            
+            animation: an3 2s linear 1;
+            border: 2.5px solid #2ecc71;
+        }
+        @keyframes an3{
+            /* clip: rect(top,right,bottom,left); */
+            0%, 100%{
+                clip: rect(0px,88px,2px,0px);
+            }
+            15%{
+                clip: rect(1px,2px,28px,0px);
+            }
+            40%{
+                clip: rect(26px,88px,28px,0px);
+            }
+            70%{
+                clip: rect(0px,88px,28px,86px);
+            } 
+        }
+
+        .buttonan4 {
+            width: 80px;
+            height: 20px;
+            margin: 2px;
+            line-height: 20px;
+            border: 2.5px solid transparent;
+            border-image: linear-gradient(to right, rgba(255, 95, 95, 0.836) 0%, rgb(43, 255, 0) 50%,rgba(39, 39, 230, 0.925)90%);
+            border-image-slice: 2;
+            text-align: center;
+            position: relative;
+            color: blanchedalmond;
+            font-family: 'Iceland';
+        }
+        .buttonan4::after ,.buttonan4::before{
+            box-sizing: inherit;
+            content: '';
+            position: absolute;
+            border: 2px solid transparent;
+
+
+            
+        } 
+        
+         .buttonan4.Jone:hover{
+            animation: an4 2s linear infinite;
+        }
+         @keyframes an4{
+            /* clip: rect(top,right,bottom,left); */
+            0%, 100%{
+                clip: rect(0px,88px,2px,0px);
+            }
+            15%{
+                clip: rect(1px,2px,28px,0px);
+            }
+            40%{
+                clip: rect(26px,88px,28px,0px);
+            }
+            70%{
+                clip: rect(0px,88px,28px,86px);
+            } 
+        }
+        
 
     </style>
 </head>
@@ -289,8 +368,8 @@
 <div class=" container">
     <div class="Ione buttonan1">hover</div>
     <div class="Itwo buttonan2">hover</div>
-    <div class="Jone button">hover</div>
-    <div class="Jtwo button">hover</div>
+    <div class="Jone buttonan3">hover</div>
+    <div class="Jtwo buttonan4">hover</div>
 </div>
 
 </body>
