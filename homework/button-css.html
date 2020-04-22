@@ -9,12 +9,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        
-        
+        h2{
+            font-family: 'Iceland', cursive;
+            color: lavender;
+        }
+        .card{
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            transform: translate(-5%,-5%);
+            width: 100px;
+            height: 150px;
+            transform-style: preserve-3d;
+            perspective: 500px;
+            transition: 0.5s;
+        }
+        .card .front{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            backface-visibility: hidden;
+            transform: rotateX(0deg);
+            transition: 0.3s;
+        }
+        .card:hover .front{
+            transform: rotateX(-180deg);
+        }
+        /* icon前導圖 */
+        .card .back:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+        }
+        .card .back{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            backface-visibility: hidden;;
+            transform: rotateX(180deg);
+            transition: 0.3s;
+        }
+        .card:hover .back{
+            transform: rotateX(0deg);
+        }
+        .card .back .details{
+            position: absolute;
+            top:50%;
+            transform: rotateY(-50%);
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card .back .details h2{
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            
+        }
+        .social-icons{
+            padding: 10px 0;
+        }
+        .social-icons{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            background:#262626;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
         body{
             margin: 0;
-            background: black;
+            background: fff;
             box-sizing: border-box;
             height: 100%;
             width: 100%;
@@ -157,7 +239,6 @@
             50%{
                 opacity: 1;
             }
-            ?
         }
         .button.Hone:hover{
             box-shadow: 3px 2px 6px rgba(20%,20%,40%,1), inset 1.5px 1.5px 9px 0px rgba(20%,20%,40%,1);
@@ -419,6 +500,21 @@
     <div class="Itwo buttonan2">hover</div>
     <div class="Jone buttonan3">hover</div>
     <div class="Jtwo buttonan4">hover</div>
+</div>
+<div class="card">
+    <div class="front"><img src="https://picsum.photos/100/150" alt=""></div>
+    <div class="back"></div>
+    <div class="details">
+        <h2>Shu</h2>
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-instgram" aria-hidden="true"></i></a>
+            
+        </div>
+    </div>
 </div>
 
 </body>

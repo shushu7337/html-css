@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Light Text Effects</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Iceland" />
+</head>
+<style>
+  body{
+      margin: 0;
+      padding: 0;
+      background: #000;
+      background-size: cover;
+      background-image:
+        linear-gradient(rgba(73, 179, 206, 0.15) 1px, transparent 0),
+        linear-gradient(90deg, rgba(200,200,200,0.15) 1px, transparent 0),
+        linear-gradient(rgba(150,150,150,.25) 1px, transparent 0),
+        linear-gradient(90deg, rgba(150,150,150,.25) 1px, transparent 0);
+      background-size: 
+        5px 5px, 5px 5px, 50px 50px, 50px 50px;
+      font-family: 'Iceland';
+  }
+  .neon{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      margin: 0;
+      padding: 0 20px;
+      font-size: 6em;
+      color: #FFF;
+      text-shadow: 0 0 20px #FF005B;
+  } 
+    .neon:after{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    z-index: -1;
+    color: #ff005b;
+    filter: blur(15px); 
+  }
+  .neon:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fe3a80;
+      z-index: -2;
+      opacity: .5;
+      filter: blur(40px);
+  }
+
+    
+</style>
+<body>
+    <h1 class="neon" data-test="[Neon-Light]">[Neon-Light]</h1>
+</body>
+</html>
