@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridRWD</title>
+    <link rel="stylesheet" href="../plugins/bootstrap.css">
+    <link rel="stylesheet" href="../plugins/custom.css">
+</head>
+<body>
+    <!-- !!設計要由小到大!! -->
+    <!-- .container>(.row>.col*4)+(.row>.col-8+.col-4)*1 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">One of the columns</div>
+            <div class="col-sm">One of the columns</div>
+            <div class="col-sm">One of the columns</div>
+        </div>    
+        <div class="row justify-content-md-around">
+            <!-- 基本base為col-12 那以上的會變成col-md-6 -->
+            <!-- col-md-6 在往上到 col-xl-3 -->
+            <!-- col-md-6 每行六格線等分，並吃-md的效果 -->
+            <!-- col-md  ≥768px -->
+            <!-- col-xl  ≥1200px -->
+          <div class="col-12 col-md-5 col-xl-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dolor molestiae. Accusamus ad temporibus explicabo, maxime nam eveniet fuga placeat numquam iste odit, vitae neque cum impedit porro ipsa laborum!</div>
+          <div class="col-12 col-md-5 col-xl-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dolor molestiae. Accusamus ad temporibus explicabo, maxime nam eveniet fuga placeat numquam iste odit, vitae neque cum impedit porro ipsa laborum!</div>
+          <div class="col-12 col-md-6 col-xl-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dolor molestiae. Accusamus ad temporibus explicabo, maxime nam eveniet fuga placeat numquam iste odit, vitae neque cum impedit porro ipsa laborum!</div>
+          <div class="col-12 col-md-6 col-xl-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dolor molestiae. Accusamus ad temporibus explicabo, maxime nam eveniet fuga placeat numquam iste odit, vitae neque cum impedit porro ipsa laborum!</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.    Rem ab eveniet sint corporis. Natus nulla quas commodi doloremque maiores aut  obcaecati ea amet molestias facere, eveniet consectetur vero deleniti    perspiciatis?</div>
+            <div class="col-6 col-md-3 col-xl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.    Rem ab eveniet sint corporis. Natus nulla quas commodi doloremque maiores aut  obcaecati ea amet molestias facere, eveniet consectetur vero deleniti    perspiciatis?</div>
+            <div class="col-6 col-md-3 col-xl-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit.    Rem ab eveniet sint corporis. Natus nulla quas commodi doloremque maiores aut  obcaecati ea amet molestias facere, eveniet consectetur vero deleniti    perspiciatis?</div>
+            <div class="col-12 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.    Rem ab eveniet sint corporis. Natus nulla quas commodi doloremque maiores aut  obcaecati ea amet molestias facere, eveniet consectetur vero deleniti    perspiciatis?</div>
+            
+        </div>
+
+        <hr>
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+              <div class="col col-lg-2">
+                1 of 3
+              </div>
+              <div class="col-md-auto">
+                Variable width content
+              </div>
+              <div class="col col-lg-2">
+                3 of 3
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                1 of 3
+              </div>
+              <div class="col-md-auto">
+                Variable width content
+              </div>
+              <div class="col col-lg-2">
+                3 of 3
+              </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container">
+            <div class="row row-cols-6">
+                <div class="col-3">A 0f 3</div>
+                <div class="col">B of 12/6</div>
+                <div class="col">C of 12/6</div>
+                <div class="col">D of 12/6</div>
+                <div class="col">E of 12/6</div>
+                <div class="col-1">F of 1</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-8">col-8</div>
+          <div class="col-4">col-4</div>
+        </div>
+      </div>
+    
+</body>
+</html>
