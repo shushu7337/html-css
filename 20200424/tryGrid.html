@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <link rel="stylesheet" href="../plugins/bootstrap.css">
+    <link rel="stylesheet" href="../plugins/custom.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row addzone">
+            <div class="col-3">aa</div>
+            <!-- colauto會隨著內容物長度來判斷 -->
+            <div class="colauto">bbccccccc</div>
+            <div class="col-3">cc</div>
+            <div class="col">dd</div>
+        </div>
+        
+        <hr>
+<!-- type1 -->
+<h3>type1</h3>
+        <div class="row addzone">
+            <div class="col-4">AAA</div>
+            <div class="col-4">AAA</div>
+        </div>
+        <div class="row addzone">
+            <div class="col-12">AAA</div>
+        </div>
+        <div class="row addzone">
+            <div class="col-4">AAA</div>
+            <div class="col-4">AAA</div>
+        </div>
+        
+        <hr>
+<!-- type2 -->
+<h3>type2</h3>
+        <div class="row addzone">
+            <div class="col-4">AAA</div>
+            <div class="col-4">AAA</div>
+            <div class="col-12">AAA</div>
+            <div class="col-4">AAA</div>
+            <div class="col-4">AAA</div>
+        </div>
+
+        <hr>
+        <!-- row>div.col*2 -->
+        <!-- grid 為內容的rwd(12為一行單位，要呈現多少輸入數值即可呈現 -->
+        <!-- number 1~12, 6+6, 12, 3+3+3+3, 4+4+4, 3+3+6-->
+        <div class="row addzone">
+            <div class="col-12">Grid-12</div>
+            <div class="col-6">A Grid-6</div>
+            <div class="col-3">B Grid-3</div>
+            <div class="col-3">C Grid-3</div>
+            <div class="col-1">Grid-1</div>
+            <div class="col-2">Grid-2</div>
+            <div class="col-3">Grid-3</div>
+            <div class="col-4">Grid-4</div>
+            <div class="col-5">Grid-5</div>
+            <div class="col-6">Grid-6</div>
+        </div>
+        <div class="row addzone">
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+          
+        </div>
+      </div>
+    
+    <hr>
+
+    <div class="container">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <p class="lead">
+            This is a simple hero unit, a simple jumbotron-style component for
+            calling extra attention to featured content or information.
+          </p>
+          <hr class="my-4" />
+          <p>
+            It uses utility classes for typography and spacing to space content out
+            within the larger container.
+          </p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+    
+</body>
+</html>

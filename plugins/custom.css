@@ -1,0 +1,11 @@
+.addzone > * {
+    background: #ccc;
+    border: 1px solid #aaa;
+    margin-bottom: 5px;
+}
+.row>*{
+    background: #ccc;
+    border: 2px solid #aaa;
+    margin-bottom: 5px;
+    min-width: 50px;
+}
