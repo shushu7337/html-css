@@ -15,14 +15,25 @@
 } */
 
 /*tryGridFlex */
+/* .row>*{
+    background: #ccc;
+    border: 2px solid #aaa;
+    margin-bottom: 5px;
+    min-width: 100px;
+} */
+/* .row{
+    height: 100px;
+    background: #555;
+    border: 3px solid #a00;
+} */
+
+/* tryGridOffset */
 .row>*{
     background: #ccc;
     border: 2px solid #aaa;
     margin-bottom: 5px;
     min-width: 100px;
 }
-/* .row{
-    height: 100px;
-    background: #555;
-    border: 3px solid #a00;
-} */
+.row{
+    opacity: 1;
+}
