@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tryModal</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script> -->
+  </head>
+
+  <body class="p-5">
+    <!-- <div tabindex="0">tabindex0</div>
+  <div tabindex="4">tabindex4</div>
+  <div tabindex="2">tabindex2</div>
+  <div tabindex="3">tabindex3</div>
+  <div tabindex="-1">tabindex-1</div>
+  <div tabindex="5">tabindex5</div>
+  <div tabindex="10">tabindex10</div>
+     -->
+    <!-- tabindex 為在頁面按tab鍵時的順序，設為-1擇點選不到，有最大值請餵狗 -->
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myid">
+      Hey-Hey
+    </button>
+
+    <!-- Modal -->
+    <!-- 前三層為modal起手式 -->
+    <!-- data-backdrop="static"會鎖住modal跳回去，data-keyboard="true"則為可以使用鍵盤esc鍵跳回，設定為"fasle"則為不行。-->
+    <div class="modal fade" id="myid" data-backdrop="static" data-keyboard="true" tabindex="1">
+      <!-- modal-dialog 預設會捲動視窗 -->
+      <!-- modal-dialog modal-dialog-scrollable  會帶有滾輪效果-->
+      <!-- modal-dialog  modal-dialog-centered 跳出來的視窗會置中在中心點 -->
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <!-- Modal內容部分，可以有可以沒有，看需求作增減 -->
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <!-- data-dismiss 作用為關閉跳出的modal  -->
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Lorem ipsum dolor Lorem ipsum doloplicabo dele
+            <h5>Popover in a modal</h5>
+            <p>This <a href="#" class="btn btn-secondary popover-test" data-toggle="popover"  title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+            <hr>
+            <h5>Tooltips in a modal</h5>
+            <p><a href="#" class="tooltip-test" title="Tooltip" data-toggle="tooltip" data-placement="top">This link</a> and <a href="#" class="tooltip-test" title="Tooltip" data-toggle="tooltip" data-placement="top">that link</a> have tooltips on hover.</p>
+          </div>
+          <div class="modal-footer">
+            <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+                <script>$(function () {
+                  $('[data-toggle="tooltip"]').tooltip()
+                })</script>
+                <script>$(function () {
+                  $('[data-toggle="popover"]').popover()
+                })</script>
+</html>
