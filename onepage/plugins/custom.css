@@ -99,3 +99,12 @@ footer > .position-fixed{
     background-position: center;
     /* 讓圖片保持置中 */
 }
+
+#shutrans iframe{
+    filter: grayscale(0.3);
+
+}
+
+.nav-link{
+    transition: 1s ease;
+}
