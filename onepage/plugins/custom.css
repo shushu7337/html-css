@@ -18,7 +18,7 @@ a:hover{
     bottom: 0;
     text-shadow: #333 0.3rem 0.3rem 0.5rem;
 }
-#shuslider a{
+#shuslider a, #shufacility a{
     text-shadow: #333 0.3rem 0.3rem 0.5rem;
 }
 
@@ -76,4 +76,26 @@ footer > .position-fixed{
 
 #shuroom .tab-content>.row.active{
     display: flex;
+}
+
+#roomPrice th{
+    width: 25%;
+}
+
+@media (min-width :992px){
+    #shufacility li:nth-of-type(even) img{
+        order: 1;
+    }
+}
+
+#shufacility{
+    background: 
+    url(https://source.unsplash.com/collection/190562/1980x1080),
+    radial-gradient(circle, rgba(2, 0, 36, 0.109) 0%, rgba(159, 226, 209, 0.411) 54%, rgba(0, 213, 255, 0.349) 80%);
+    background-blend-mode: color;
+    background-size: cover;
+    /* 填滿圖片 */
+    background-attachment: fixed;
+    background-position: center;
+    /* 讓圖片保持置中 */
 }

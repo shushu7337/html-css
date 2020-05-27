@@ -306,7 +306,111 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane fade" id="roomPrice"></div>
+        
+        
+        <div class="tab-pane fade" id="roomPrice">
+          <div class="mb-5">
+            <h5 class="text-info">
+              [行政本館]
+            </h5>
+            <table class="table text-center table-sm">
+              <thead>
+                <tr class="alert-info">
+                  <th class="border-info">房型</th>
+                  <th class="border-info">平日</th>
+                  <th class="border-info">假日</th>
+                  <th class="border-info">連續國定假日</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>溫馨雙人房</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+                <tr>
+                  <th>精緻雙人房</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+                <tr>
+                  <th>親子雙人房</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mb-5">
+            <h5 class="text-info">
+              [雙幕川館]
+            </h5>
+            <table class="table text-center table-sm">
+              <thead>
+                <tr class="alert-info">
+                  <th class="border-info">房型</th>
+                  <th class="border-info">平日</th>
+                  <th class="border-info">假日</th>
+                  <th class="border-info">連續國定假日</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>湖畔仙屋</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+                <tr>
+                  <th>芬多森屋</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mb-5">
+            <h5 class="text-info">
+              [繪影湯屋]
+            </h5>
+            <table class="table text-center table-sm">
+              <thead>
+                <tr class="alert-info">
+                  <th class="border-info">房型</th>
+                  <th class="border-info">平日</th>
+                  <th class="border-info">假日</th>
+                  <th class="border-info">連續國定假日</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>溫馨蜜月房</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+                <tr>
+                  <th>親子家庭房</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+                <tr>
+                  <th>豪華尊爵房</th>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                  <td>NT3000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         <div class="tab-pane fade" id="roomRule">
           <h3 class="border-bottom border-info text-right">入住須知</h3>
@@ -387,7 +491,123 @@
         </div>
       </article>
     </section>
+    
+    <!-- 一樣的語意結構， -->
+    <!-- 一樣從小的開始設計，從手機模式開始作業，先由一個呈現做完再來擺第二組 -->
+    <section id="shufacility" class="py-5 alert-secondary text-white">
+      <header class="text-center text-info container">
+        <h2 class="py-3 text-white">服務設施</h2>
+      </header>
+      
+      <!-- 開始將Ul的部分放大做，給予flex-sm-row 讓文字可以放大時能做並排，並給予img&下面的div給予col-sm-6，一人一半的空間，然後再繼續長大(長大之後圖片在右邊)。 -->
 
+      <!-- 這是雙層的flexbox-內部6+6(圖+文)再加上外部的6+6(圖文+圖文) -->
+      <article class="tab-content py-5 container overflow-auto">
+        <!-- 給予ul一個row並在裡層的li給予col-lg-6 (md不做是因為它會吃sm的效果) -->
+        <ul class="list-unstyled overflow-hidden row">
+          <li class="col-lg-6 media flex-column flex-sm-row align-items-center mb-4">
+            <img src="https://source.unsplash.com/collection/190961/400x300" class="pb-3 col-sm-6" >
+            <div class="media-body col-sm-6">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              <!-- 利用p標籤給予新空間 -->
+              <p class="border-bottom border-info pb-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            </div>
+          </li>
+          <li class="col-lg-6 media flex-column flex-sm-row align-items-center mb-4">
+            <!-- 可以在偶數圖片行給予order-1 讓圖片在文字後方 (Loki提示 如果用迴圈寫這個的話會附載比較大 所以可以用css寫)，(若用PHP的話就必須使用判斷式，太麻煩了所以直接用css寫) -->
+            <img src="https://source.unsplash.com/collection/190723/400x300" class="pb-3 col-sm-6">
+            <div class="media-body col-sm-6">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              <p class="border-bottom border-info pb-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            </div>
+          </li>
+          <li class="col-lg-6 media flex-column flex-sm-row align-items-center mb-4">
+            <img src="https://source.unsplash.com/collection/190548/400x300" class="pb-3 col-sm-6">
+            <div class="media-body col-sm-6">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              <p class="border-bottom border-info pb-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            </div>
+          </li>
+          <li class="col-lg-6 media flex-column flex-sm-row align-items-center mb-4">
+            <!-- 可以在偶數圖片行給予order-1 讓圖片在文字後方 (Loki提示 如果用迴圈寫這個的話會附載比較大 所以可以用css寫)，(若用PHP的話就必須使用判斷式，太麻煩了所以直接用css寫) -->
+            <img src="https://source.unsplash.com/collection/190547/400x300" class="pb-3 col-sm-6">
+            <div class="media-body col-sm-6">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              <p class="border-bottom border-info pb-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="shufoody" class="container alert-secondary">
+      <header class="text-center text-info ">
+        <h2 class="py-3">餐飲美食</h2>
+      </header>
+      <article class="py-5 row">
+        <!-- Tab Content -->
+        <!-- 透過id連結和data-toggle的作用來達成手風琴效果 -->
+        <div class="col-12 col-lg-6 tab-content mb-3" id="nav-tabContent">
+            <img id="fimg1" src="https://source.unsplash.com/collection/190561/600x400" class="w-100 img-fluid fade img-thumbnail tab-pane show active">
+            <img id="fimg2" src="https://source.unsplash.com/collection/190562/600x400" class="w-100 img-fluid fade img-thumbnail tab-pane">
+            <img id="fimg3" src="https://source.unsplash.com/collection/190564/600x400" class="w-100 img-fluid fade img-thumbnail tab-pane">
+        </div>
+        <!-- According -->
+        <div class="accordion list-group col-12 col-lg-6" id="foodmenu">
+          <!-- <div class="card">
+            <div class="card-header">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#food-1">
+                  Collapsible Group Item #1
+                </button>
+              </h2>
+            </div> -->
+
+            <!-- 在div後面增加data-toggle 和 href給予手風琴效果 -->
+          <div class="card"  data-toggle="list" href="#fimg1">
+            <a href="#food-1" class="card-header alert-info" data-toggle="collapse">
+              中歐頂級豪華早餐 (自助式)
+              <small class="text-muted float-right">in 2F食堂</small></a>
+            <div id="food-1" class="collapse" data-parent="#foodmenu">
+              <div class="card-body">
+                <p>百道經典美食早午餐就在這裡，嚴選泰山當地食材精心烹調充滿在地風味的特色小吃，菜色美味有口皆碑，由三星米其林主廚團隊為您廚房把關一整天最重要的精氣早餐。<br>
+                  座位高達500人用餐空間，另也適合工商宴席、婚禮宴客、家庭聚餐、大宴小酌、台菜、客家菜、風味套餐色、香、味美，是用餐之好所在!，多種餐飲選擇滿足您挑剔的味蕾並歡迎親臨品嚐!!</p>
+                <p class="float-right text-danger">定價： 大人 NT500 / 小孩 NT300<br>
+                  營業時間：AM 06:00 ~ AM 11:00</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="card"  data-toggle="list" href="#fimg2">
+            <a href="#food-2" class="card-header alert-info" data-toggle="collapse">咖啡複合式鋼琴酒吧
+              <small class="text-muted float-right">in 1F中庭</small></a>
+            <div id="food-2" class="collapse" data-parent="#foodmenu">
+              <div class="card-body">
+                <p>大飯店一樓的挑高中庭，瀰漫優雅的南洋休閒風，庭內雨林造景，融合水聲與天籟柔美樂音，供應各式花茶、咖啡、健康蔬果汁、英式下午茶及宵夜，揉合自然音樂，是您輕鬆暢敘的最佳地點。
+                  （假日二人樂團鋼琴、長笛、薩克斯風演奏）</p>
+                <p class="float-right text-danger">基本消費：NT150 + 10% / 位<br>
+                  營業時間：PM 07:00 ~ AM 01:00</p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="card"  data-toggle="list" href="#fimg3">
+            <a href="#food-3" class="card-header alert-info" data-toggle="collapse">桶仔雞BBQ 露營客最愛
+              <small class="text-muted float-right">代訂預約</small></a>
+            <div id="food-3" class="collapse" data-parent="#foodmenu">
+              <div class="card-body">
+              <p>本季每日限量的私房美饌，經典台灣古早味美食桶仔雞為您準備，古早醬汁與獨家配方將其均勻裹上一層厚厚的蜂蜜楓糖後再送進烤爐燒烤。一口咬下細膩的肉質與酥脆表皮，享受這多層次卻不膩口的美味。<br>
+                另還有BBQ豪華套餐組合(10人份)，讓你美味無窮享受榮高至上的味蕾享受。</p>
+              <p class="float-right text-danger">露營客代訂服務 (以利備食材，請於一週前預約)<br>
+                $800/隻 桶仔雞(全熟食)<br>
+                $3000/10人 BBQ豪華套餐(半熟冷藏)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
     <footer class="bg-dark text-muted text-center py-2">
       <small
         >泰山職業訓練中心課程教材編譯
