@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello world!!</h1>
+
+    <script>
+    // if~else判斷式
+// ----------------------------
+/*
+        if(condition){
+            //codeA
+        }else{
+            //codeB
+        }
+*/
+    //if~else~if判斷式
+// ----------------------------
+/*
+        if(true){
+            //codeA
+        }else if(true){
+            //codeB
+        }else{
+            //codeC
+        }
+*/
+// 下面為未刪減版
+//-----------------------------
+/*
+        if(true){
+            //codeA
+        }
+        else {
+            if(true) {
+                //codeB
+            }
+            else {
+                //codeC
+            }
+        }
+*/
+// if else 若判斷式內只有一行的話，可以將外面的{}省略
+//----------------------------
+        /* 
+           a=50;
+           if( a > 60 ) a = 100;
+           else a = 0;
+        */
+
+var man=true;
+var man=false;
+if(man){
+    console.log("帥哥");
+}else{
+    console.log("踏取蜜");
+}
+
+let height=156; //高
+let money=50;  //富
+let face=0;     //1帥0醜
+
+if(height > 170 && money> 80 && face){
+    console.log("100分");
+}else if(height > 170 || money > 80 || face){
+    console.log("60~99分");
+}else{
+    console.log("0~59分");
+}
+
+
+let day=4;
+let msg=day<6?"is workday":"Holiday";
+console.log("Today " + msg);
+// 客家版
+console.log(`Today is  ${day<5?"workday":"Holiday"}`);
+
+
+let lang = "jp";
+switch (lang) {
+    case "tw":
+        console.log("喜歡");
+    break;
+    case "jp":
+        console.log("すき");
+    break;
+    case "hk":
+        console.log("好锺意");
+    break;
+    case "kr":
+        console.log("처럼");
+    break;
+    default:
+        console.log("...");
+    break;
+}
+
+// 注意這裡是==
+if (lang=="tw"){
+    console.log("喜歡");
+}else if(lang=="jp"){
+    console.log("すき");
+}else if(lang=="hk"){
+    console.log("好锺意");
+}else if(lang=="kr"){
+    console.log("처럼");
+}else {
+    console.log("...");
+}
+if (lang=="tw") console.log("喜歡");
+else if(lang=="jp") console.log("すき");
+else if(lang=="hk") console.log("好锺意");
+else if(lang=="kr") console.log("처럼");
+else  console.log("...");
+
+let str="";
+// for (let i = 0; i < 10; i++) {
+//     str+=i;
+// }
+//     console.log(str);    
+
+// for(let i =0;i<1;i++){
+//     console.log(1);
+//     console.log(4);
+//     console.log(7);
+//     console.log(10);
+// }
+
+// for(let i=1;i<11;i+=3) console.log(i);
+// for(let i=1;i<10;i++){
+//     for(let j=1;j<10;j++){
+//         console.log(`${i}*${j}=${i*j}`);
+//     }
+// }
+
+for(let i=1,j=1;i<10;j++){
+    console.log(`${i}*${j}=${i*j}`);
+    j<9? j:(j=0,i++,console.log(""));
+//     /*
+//         if(j==9){
+//             j=0;
+//             i++;
+//         }
+
+//     */
+    }
+    
+let n=0;
+while(n<5){
+    console.log(n);
+    n++;
+}
+
+let i=1,j=1;
+
+while(i<10){
+    console.log(`${i}*${j}=${i*j}`);
+    // type1
+    j<9? j:(j=0,i++,console.log(""));
+    // type2
+    // if(j==9){
+    //     j=0;
+    //     i++;
+    // }
+    j++;
+}
+
+let mq="",x=0;
+do {
+    x++;
+    mq += x;
+} while (x < 5);
+console.log(mq);
+
+var m=0;
+while(m < 10){
+    m++;
+    if(m==5) continue; //直接忽略
+    if(m==8) break;    //直接離開
+    console.log(m);
+}
+
+function parrot(say){
+    console.log("hi~~~~~");
+    // return 會直接跳開
+    if(say=="mute") return;
+    console.log(say);
+}
+
+
+    </script>
+</body>
+</html>
