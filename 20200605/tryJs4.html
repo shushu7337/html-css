@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陣列與物件!!</title>
+</head>
+<body>
+    <h1>陣列與物件!!</h1>
+    <script>
+        // ---type 1---
+        let ary=new Array();
+        // ---type 2---給予ary一個符號表示為空陣列
+        // let ary=[];
+        // 要push 前要先有一個陣列，由陣列提供的原生物件
+        for(let i = 0; i < 11 ; i++){
+            ary.push("a"+i);
+        }
+
+        // foreach
+        // ---type 1---
+        // 先宣告一個function ,來接foreach
+        // showary(value值,item值) !!要注意JavaScript的value 值跟 item 值的位置 
+        function showary(value,key,data,gg){
+            // 基本上只會給到兩個值，後面的兩個值的資料基本上不會用到(data那欄已經又把鎮列印出來了zz基本上可以省略)(gg那欄已經undefind了毫無作用)
+            console.log(`key=${key},value=${value},data=${data},gg=${gg}`);
+        }
+        ary.forEach(showary);
+
+        // ---type 2---
+        // 客家精神版
+        // function (){}  ------>匿名函式   (匿名函式可以丟this進去)
+        ary.forEach(function(value,key){
+            console.log(value,key);
+        });
+
+        // ---type 3---
+        // 客家究極版
+        // ()=>{}         ------>箭頭函式 (箭頭函式有缺點，他不能丟this 進去)
+        ary.forEach((value,key)=>{
+            console.log(value,key);
+        });
+
+        // 匿名函式與箭頭函式的比較
+
+        // function(s1){...}
+        // (s1)=>{...}
+
+        // (o)  function(this) {...}
+        // (X)  (this) => {...}
+        console.log("--------------------");
+
+        // for-of --- 只會提供 {value} 沒有 {key}  適合 ***陣列array 使用***
+
+        // 創造一個臨時暫存
+        for (let i of ary){
+            console.log(i);
+        }
+
+console.log("--------------------");
+        // 綜合比較   foreach能撈出來的資料比起for of更為完整
+        console.log("綜合比較   foreach能撈出來的資料比起for of更為完整") 
+
+console.log("--------------------");
+        
+        // filter 過濾 => 
+        //              它可以幫你對一個陣列A進行條件return,最後集結成一個新陣列
+
+       
+        // 預設一個陣列欄位來創造中間的空陣列欄位
+        ary[50]=100;
+
+        // 假設今天想把陣列內的無效陣列欄位移除
+
+
+        // ---- type 1----
+        // 宣告一個clear的陣列函式
+        function clearNull(val){
+            if(val!=null)return val;
+        }
+        
+        // 新的b陣列將filter丟出來的有值陣列接回來
+        b=ary.filter(clearNull);
+        // b=[a0,a1,a2,...]
+
+        // ---- type 2----
+        // 客家版
+        function clearNull(val){
+            // if(val!=null) return val;
+            return (val!=null);
+        }
+        // b=ary.filter(clearNull);
+
+        // ---- type 3----
+        // 客家究極版
+        ary=ary.filter((val)=>{return val!=null});
+
+
+        let obj={
+
+            // 前面的cat 可包可不包
+            // "cat":"加菲貓",
+            cat:"加菲貓",
+            dog:"靈犬萊西",
+            other:{
+                horse:"彩虹小馬",
+                mouse:"米老鼠"
+            }
+            };      //此格是為JSON格式，是一個物件
+
+        console.log(obj.other.horse); 
+// -------------DATA陣列適合資料的整理，而DAT物件比較適合存放資料---------------
+//             -------------物件object沒有索引值---------------
+
+
+console.log("--------------------");
+        // for-in --- 會提供 {key} *** 適合 物件obj 使用***
+        for(const key in obj) {
+            console.log(key);
+        }
+console.log("--------------------");
+
+        for(const key in obj){
+            console.log(key,obj[key]);
+        }
+    /*key值可直接用於檢查物件
+        ->  "other" in obj
+        <-  true
+        ->  "house" in obj
+        <-  false
+    */
+
+
+
+        // JavaScript  for 大集合
+        // 原生鍊
+        // for(i=0;i<...)
+        // for( of ) val
+        // for( in ) key
+        
+
+        // 可以上MDN去找適合用的素材
+    </script>
+</body>
+</html>
