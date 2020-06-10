@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM3</title>
+</head>
+<body>
+
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <h1>BOM3</h1>
+    <p id="demo">點這裡</p>
+    <button onclick="add()">按這裡</button>
+    <script>
+        function add(){
+            // 創造 btn為活動節點
+            let btn=document.createElement("button");
+            // 賦予內容
+            btn.textContent="AAA";
+            // 插入 在整個內容最後的老么插入(body最後面)
+            document.body.appendChild(btn);
+        }
+
+        // 如果要在<p id="demo> 做add()行為
+//------  type1  -----
+        document.getElementById("demo").addEventListener("onclick",add);
+        // 取得id值後再插入一個onclick="add()"
+// //------  type2  -----
+//         document.getElementById("demo").setAttribute("onclick","add()");
+// //------  type3  -----
+//         document.getElementById("demo").onclick=add;       //直接接一個函式即可不用再加上()，如果加上()就是直接執行，且等候左邊是一樣是null;
+// //------  type4  -----
+//         document.getElementById("demo").onclick=function(){ //一次性使用的匿名函式
+//             add();
+//         }
+// //------  type5  -----
+//         document.getElementById("demo").onclick=()=>{ //一次性使用的匿名函式
+//             add();
+//         }
+    
+    
+        //移除節點
+        // document.getElementById("demo").remove();
+        // document.getElementsByTagName("button")[0].remove();
+
+        // 找到id為list的物件
+        document.getElementById("list");
+        // 找到後來做移除
+//------  type1  -----
+        document.getElementById("list").removeChild(document.getElementById("list").children[1])
+//------  type2  -----
+        document.getElementById("list").children[2].remove();
+    </script>
+</body>
+</html>
