@@ -50,13 +50,15 @@
                 // dd.style="height: 0px;width: 0px;border-left: 50px solid transparent;border-right: 50px solid transparent;border-bottom: 100px solid transparent;background: red;";
             }
         }
-        function color (cc){
-            ccp=document.getElementById("aa").value;
-            if(dd.style.background)
-                dd.style.background=ccp;
-            else 
-                dd.style.borderBottom="100px solid "+ccp;
-            
+        function color (x){
+            crg=document.getElementById("aa").value;
+            if(dd.style.background!=null){
+                console.log("1");
+                dd.style.background=crg;
+            }else {
+                dd.style.borderBottom="100px solid "+crg;
+                console.log("2");
+            }
         }
         
     
