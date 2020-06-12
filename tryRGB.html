@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tryRGB.html</title>
+    <style>
+        .bln{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="rgb" style="width: 150px ;height: 150px;background: #150;margin: auto;"></div>
+    <div class="bln">
+        <button id="RR">R</button>
+        <button id="GG">G</button>
+        <button id="BB">B</button>
+    </div>
+
+    <script>
+        let rgb=document.getElementById("rgb");
+        let btnR=document.getElementById("RR");
+        let btnG=document.getElementById("GG");
+        let btnB=document.getElementById("BB");
+        
+        btnR.addEventListener("click",ccolor);
+        function ccolor(){
+            RR=prompt("請輸入數值","0~255");
+            if((RR<0) || (256<RR)){
+                alert("請重新輸入");
+                return color();
+            }else{
+                clr=btnR.value;
+                rgb.style.background=clr;
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
