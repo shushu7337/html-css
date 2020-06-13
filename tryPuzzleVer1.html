@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+</head>
+<body>
+    <script>
+        alert("歡迎來到搶奪前世情人大考驗");
+        if(confirm("準備好接受選擇地獄的試驗了嗎?")){
+            askname();
+        }else{
+            alert("還是回家洗洗睡吧");
+        }
+        function askname(){
+            let start;
+            if(start=prompt("挑戰者，報上名來","")){
+                alert(start+" 開始進行搶奪吧!");
+                startplay();
+            }else{
+                name="女兒小偷";
+                alert("連報上名來的勇氣都沒有，那就叫你臭小偷吧");
+                startplay();
+            }
+        }
+        function startplay(){
+            if(qus(
+                "一見鍾情"+"\r"+"交往三天的女友突然傳來簡訊表示"+"\r"+"寶貝，今天好熱哦冷氣壞掉了我家又沒人"+"\r"+"該去嗎?",
+                "伯父被反將一軍扣了20hp,阻止交往失敗!",
+                "開門後發現Lv.100伯父笑著拿著手機坐在沙發大喊:關門!放狗!!",
+                false
+                ))
+                return;
+            
+            if(qus(
+                "惡夢連連"+"\r"+"在燈火闌珊的夜爬象山行程中，女友突然塞乃討背"+"\r"+"要去背她嗎?",
+                "女友氣噗噗換她背你爬象山GET!女友伯父氣到內傷扣了10hp!",
+                "靠近猛然一瞧原來身上背的不是女友而是伯父阿，直接被一記十字固定鎖擊倒!",
+                false
+                ))
+                return;
+            
+            if(qus(
+                "接二連三"+"\r"+"逛三井凹累逛太久沒趕上末班車回家，走回家的途中遇到小混混們不斷挑釁"+"\r"+"要擊退小混混嗎?",
+                "跪地求饒才發現到原來是失散多年的女友哥哥啊!先花了三百收買，伯父損失一名大將，元氣大傷扣了30hp",
+                "小混混原來是失散多年的女友哥哥直接被TKO，女友難過到直接分手",
+                false
+                ))
+                return;
+            
+            if(qus(
+                "危機四伏"+"\r"+"到家裡附近的屏東海生館走走，女友突然發現有最喜愛的企鵝餵食秀並呼喚著你一起加入"+"\r"+"要一起玩樂嗎?",
+                "混在其中的伯父因企鵝裝太熱直接中暑扣了30hp!",
+                " 發現伯父混在其中，直接被帶走一波",
+                false
+                ))
+                return;
+            
+            if(qus(
+                "過五關斬六將"+"\r"+"女友生日想先給個驚喜到他家布置，殊不知一開門被女友姊姊感性告白"+"\r"+"該接受姐姐好意嗎?",
+                "了不起!負責，愛屋及烏讓女友十分感動直接進入人生下一階段!伯父hp歸零直接氣到出家",
+                "想到頭禿索性出家遠離塵埃，直接回鍋母胎單身大家庭 ",
+                true
+                ))
+                return;
+                alert("你真是萬中選一的人才阿");
+            }
+            
+        function qus(qs,ga,ba,choice){
+          if(confirm(qs) == choice){
+            alert(ga);
+          }else{
+            alert(ba+"\r"+"回家練練先再來過唄");
+            return true;
+          }
+        }
+        
+    </script>
+</body>
+</html>
+

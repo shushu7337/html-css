@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body>
+    <script>
+        Swal.fire{
+            title: '這裡是猜猜遊戲，請輸入角色名字', //標題
+            input: 'text', //輸入欄位的類型
+            inputValue: '大俠', //欄位預設值
+            showLoaderOnConfirm: true, //啟用輸入框
+            confirmButtonText: '我取好了', //確定按鈕之文字
+            cancelButtonText: '略過', //取消按鈕之文字
+            showCancelButton: true, //提供取消按鈕
+            allowOutsideClick: false //是窗外的按鈕可否觸發取消事件
+        }
+    </script>
+</body>
+</html>
+
