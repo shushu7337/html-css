@@ -1,24 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puzzle</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        Swal.fire{
-            title: '這裡是猜猜遊戲，請輸入角色名字', //標題
-            input: 'text', //輸入欄位的類型
-            inputValue: '大俠', //欄位預設值
-            showLoaderOnConfirm: true, //啟用輸入框
-            confirmButtonText: '我取好了', //確定按鈕之文字
-            cancelButtonText: '略過', //取消按鈕之文字
-            showCancelButton: true, //提供取消按鈕
-            allowOutsideClick: false //是窗外的按鈕可否觸發取消事件
+      var name;
+      ready();
+      function ready() {
+        Swal.fire({
+          title: "歡迎來到搶奪前世情人大考驗",
+          text: "準備好接受選擇地獄的試驗了嗎?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "來吧!",
+          cancelButtonText: "我內急先等等再來打過!",
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire({
+               title:'先來個自我介紹先吧!',
+               confirmButtonText: "沒問題!",
+            }).then(askname)
+          }else{
+              Swal.fire('還是回家洗洗睡吧!')
+          }
+        })
+      };
+      function askname(){
+          Swal.fire({ 
+              title:'挑戰者，報上名來',
+              input:'text',
+          }).then((result)=>{
+              if(result.value){
+                  name=result.value;
+                  Swal.fire({
+                      title:`${name}開始進行搶奪吧!`,
+                  }).then(startplay)
+              }else{
+                  name="小兔崽子";
+                  Swal.fire({
+                    title:`連報上名來的勇氣都沒有\n那就叫你"${name}"吧`
+                  }).then(startplay)
+              }
+          }
+          )
+      };
+      function startplay(){
+          Swal.fire({
+            title: `一見鍾情`,
+            text: `交往三天的女友突然傳來簡訊表示\r寶貝，今天好熱哦冷氣壞掉了我家又沒人\n該去嗎?`,
+            confirmButtonText: '立馬備妥蜆精，即刻前往打火支援!',
+            cancelButtonText: '膝蓋突然痛風，聯絡女友家人修冷氣先',
+            showCancelButton: true,
+            allowOutsideClick: false,
+            imageUrl: 'files/10.jpg',
+            imageHeight: 300,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33'
+        }).then(result){
+            if(result.dismiss === 'cancel'){
+                Swal.fire({
+                    title:'挑戰失敗!',
+                    text:'開門後發現Lv.100伯父笑著拿著手機坐在沙發大喊:關門!放狗!!'
+                })
+            }else{
+                Swal.fire({
+                    title:'伯父殷殷期盼來個甕中之鱉卻被反將一軍扣了20hp,阻止交往失敗!'
+                })
+            }
         }
-    </script>
-</body>
-</html>
 
+      }
+    </script>
+  </body>
+</html>
