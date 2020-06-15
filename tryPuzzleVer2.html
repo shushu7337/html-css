@@ -79,10 +79,11 @@
             Swal.fire({
               title: "挑戰失敗!",
               text: "開門後發現Lv.100伯父笑著拿著手機坐在沙發大喊:關門!放狗!!",
+              confirmButtonText: "可惡!!",
             });
           } else {
             Swal.fire({
-              title: "挑戰通過",
+              title: "挑戰通過!",
               text:
                 "伯父殷殷期盼來個甕中之鱉卻被反將一軍扣了20hp" +
                 "\n" +
@@ -109,7 +110,43 @@
                 hideClass: {
                   popup: "animate__animated animate__fadeOutUp",
                 },
-              });
+              }).then((result) => {
+                if(result.dismiss !== 'cancel'){
+                  Swal.fire({
+                    title:'挑戰失敗!',
+                    text:'靠近猛然一瞧原來身上背的不是女友而是伯父阿'+'\n'+'直接被一記十字固定鎖擊倒!',
+                    confirmButtonText: "可惡!!",
+                  })
+                }else{
+                  Swal.fire({
+                    title: "挑戰通過!",
+                    text: " 女友聽到後很心疼背你爬象山GET!女友伯父氣到內傷扣了10hp!",
+                    allowOutsideClick: false,
+                    imageUrl: 'files/32.jpg',
+                    imageHeight: 300
+                  }).then(function(){
+                    Swal.fire({
+                title: "接二連三",
+                text:
+                  "逛三井凹累逛太久沒趕上末班車回家"+"\n"+"走回家的途中遇到小混混們不斷挑釁"+"\n"+"如何排解?" ,
+                confirmButtonText: "人數太多打不贏只好加入他們先每人發根菸打打交道  ",
+                cancelButtonText: "正義之火無法熄滅，怒開三檔+霸氣一一擊破  ",
+                showCancelButton: true,
+                allowOutsideClick: false,
+                imageUrl: "files/10.jpg",
+                imageHeight: 300,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+              })
+                  })
+                }
+              })
             });
           }
         });
