@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tryRGB.html</title>
     <style>
-        .bln{
-            text-align: center;
-        }
-
+      .here {
+        height: 200px;
+        width: 300px;
+        margin: auto;
+      }
+      .bln {
+        text-align: center;
+      }
     </style>
-</head>
-<body>
-    <div id="rgb" style="width: 150px ;height: 150px;background: #150;margin: auto;"></div>
+  </head>
+  <body>
+    <div id="rgb" class="here" style="background: rgb(100, 100, 100);"></div>
     <div class="bln">
-        <button id="RR">R</button>
-        <button id="GG">G</button>
-        <button id="BB">B</button>
+      <button id="RR" onclick="">R</button>
+      <button id="GG" onclick="">G</button>
+      <button id="BB" onclick="">B</button>
     </div>
 
     <script>
-        let rgb=document.getElementById("rgb");
-        let btnR=document.getElementById("RR");
-        let btnG=document.getElementById("GG");
-        let btnB=document.getElementById("BB");
-        
-        btnR.addEventListener("click",ccolor);
-        function ccolor(){
-            RR=prompt("請輸入數值","0~255");
-            if((RR<0) || (256<RR)){
-                alert("請重新輸入");
-                return color();
-            }else{
-                clr=btnR.value;
-                rgb.style.background=clr;
-            }
-        }
+            let rgb=document.getElementById("rgb");
+            btnR=document.getElementById("RR");
+            btnG=document.getElementById("GG");
+            btnB=document.getElementById("BB");
 
+            btnR.addEventListener("click",crolor);
+            btnG.addEventListener("click",cgolor);
+            btnB.addEventListener("click",cbolor);
+            rColor();
+            
+            function rColor(){
+              let btnR = Math.floor(Math.random()*256);
+              let btnG = Math.floor(Math.random()*256);
+              let btnB = Math.floor(Math.random()*256);
+              rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+              return "rgb("+btnR+","+btnG+","+btnB+")";
+              };
+              console.log(rgb.style.background)
+              function crolor(){
+                  
+                  RR=prompt("請輸入數值","0~255");
+                  if((RR<0) || (256<RR)){
+                      alert("請重新輸入");
+                      return crolor();
+                  }else{
+                    btnR=RR;
+                    
+                  }
+              }
+              function cgolor(){
+                  
+                  RR=prompt("請輸入數值","0~255");
+                  if((RR<0) || (256<RR)){
+                      alert("請重新輸入");
+                      return color();
+                  }else{
 
+                  }
+              }
+              function cbolor(){
+                  
+                  RR=prompt("請輸入數值","0~255");
+                  if((RR<0) || (256<RR)){
+                      alert("請重新輸入");
+                      return color();
+                  }else{
 
-
-
-
+                  }
+              }
+              
     </script>
-</body>
+  </body>
 </html>
