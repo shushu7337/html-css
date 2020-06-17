@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitClock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin:0;
+            background:#333;
+        }
+        .clock1{
+            display:flex;
+            justify-content:space-around;
+            align-items: center;
+            width: 750px;
+            margin: 20vh auto;
+            background: linear-gradient(#222222, #28293b);
+            padding: 5px;
+        }
+        .ck, .cc{
+            display: inline-flex;
+        }
+        .ck>div{
+            width: 100px;
+            height: 100px;
+        }
+        .cc{
+            width: 50px;
+            height: 100px;
+        }
+        .c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c0,.cc{
+            background: url("digit-clock.jpg");
+        }
+        .c1{background-position: 0px;}
+        .c2{background-position: -100px;}
+        .c3{background-position: -200px;}
+        .c4{background-position: -300px;}
+        .c5{background-position: -400px;}
+        .c6{background-position: -500px;}
+        .c7{background-position:  450px;}
+        .c8{background-position:  350px;}
+        .c9{background-position:  250px;}
+        .c0{background-position:  150px;}
+        .cc{background-position:   50px;}
+
+        .clock2{
+            margin: 0 auto 20vh;
+            width: 600px;
+            height: 300px;
+            background: rgb(9, 144, 138);
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Press Start 2P', cursive;
+        }
+        .clock2> .time{
+            font-size: 4rem;
+            padding: -10px 0 0 0;
+            margin: 0 0 30px 0;
+        }
+        .clock2> .date{
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="clock1">
+        <div class="ck">
+            <div class="c9" id="ck1"></div>
+            <div class="c1" id="ck2"></div>
+        </div>
+        <div class="cc"></div>
+            <div class="ck">
+            <div class="c2" id="ck3"></div>
+            <div class="c2" id="ck4"></div>
+        </div>
+        <div class="cc"></div>
+        <div class="ck">
+            <div class="c4" id="ck5"></div>
+            <div class="c5" id="ck6"></div>
+        </div>
+    </div>
+
+    <script>
+        function retime(){
+            // 一秒後執行retime
+            setTimeout(retime,1000)
+            // 取得現在時間
+            let nt=new Date();
+            //抓到三個數 (時 分 秒)
+            let n_hour=nt.getHours(),n_min=nt.getMinutes(),n_sec=nt.getSeconds();
+            // console.log(n_hour,n_min,n_sec);
+
+            // // 取得 個位數
+            // let 
+            //     n_hourT=n_hour%10,
+            //     n_minT=n_min%10,
+            //     n_secT=n_sec%10;
+
+            // // 取得 十位數
+            // let
+            //     n_hourX=Math.floor(n_hour/10),
+            //     n_minX=Math.floor(n_min/10),
+            //     n_secX=Math.floor(n_sec/10);
+
+            let numAry=[
+                Math.floor(n_hour/ 10),
+                n_hour %10,
+                Math.floor(n_min / 10),
+                n_min %10,
+                Math.floor(n_sec / 10),
+                n_sec %10,
+            ]
+
+            // document.getElementById("ck1").className="c"+n_hourX;
+            // document.getElementById("ck2").className="c"+n_hourT;
+            // document.getElementById("ck3").className="c"+ n_minX;
+            // document.getElementById("ck4").className="c"+ n_minT;
+            // document.getElementById("ck5").className="c"+n_secX;
+            // document.getElementById("ck6").className="c"+n_secT;
+
+            // for迴圈版本
+            for( let i = 0 ;i < 6; i++){
+                document.getElementById("ck"+(i+1)).className="c"+numAry[i];
+            }
+            // 精簡版
+            // for( let i = 0 ;i < 6; i++)document.getElementById("ck"+(i+1)).className="c"+numAry[i];
+            //冒號
+            document.getElementsByClassName("cc")[0].style.opacity=1;
+            document.getElementsByClassName("cc")[1].style.opacity=1;
+            // 讓冒號在0.5秒的時候opacity設為0
+            setTimeout(()=>{
+                document.getElementsByClassName("cc")[0].style.opacity=0;
+                document.getElementsByClassName("cc")[1].style.opacity=0;
+            },500)
+        }
+        retime();
+    </script>
+    <div class="clock2">
+        <p id="time" class="time">12:00:00</p>
+        <p id="date" class="date">2220-42-13-Thu</p>
+    </div>
+    <script>
+    // 陣列放裡面的好處:隱藏性好
+            let week=['SUN','Mon','TUE','WED','THU','FRI','SAT'];
+    // 處理時間變化
+        function runtime(){
+        //取得現在時間
+            nt=new Date();
+            // 原先得到的數值為單一個位數，前面沒有0
+            let n_hour  = chkZero(nt.getHours()),
+                n_min   = chkZero(nt.getMinutes()),
+                n_sec   = chkZero(nt.getSeconds()),
+                n_year  = nt.getFullYear(),
+                n_month = chkZero(nt.getMonth()+1),
+                n_date  = chkZero(nt.getDate()),
+                n_day   = nt.getDay();
+
+            document.getElementById("time").textContent=`${n_hour}:${n_min}:${n_sec}`;
+            document.getElementById("date").textContent=`${n_year}-${n_month}-${n_date} ${week[n_day]}`;    
+            
+        }
+        // 補0機制
+        function chkZero(num){
+            return (num<10)?"0"+num:num;
+        }
+        // 預先執行載入
+        runtime();
+        // 重複載入
+        setInterval(runtime,1000);
+    </script>
+</body>
+</html>
