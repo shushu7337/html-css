@@ -75,6 +75,7 @@
               document.getElementById("Rr").value=btnR;
               document.getElementById("Gr").value=btnG;
               document.getElementById("Br").value=btnB;
+              rgbtohex();
             };
             pp1.onmousedown = function(plus){
               go = setInterval(function(){
@@ -86,6 +87,7 @@
                 document.getElementById("Gr").value=btnG;
                 document.getElementById("Br").value=btnB;
               },1);
+              rgbtohex();
             };
             pp1.onmouseup = function(plus){
                 clearInterval(go);
@@ -102,6 +104,7 @@
               document.getElementById("Rr").value=btnR;
               document.getElementById("Gr").value=btnG;
               document.getElementById("Br").value=btnB;
+              rgbtohex();
             };
             mm1.onmousedown = function(plus){
               go = setInterval(function(){
@@ -113,6 +116,7 @@
                 document.getElementById("Gr").value=btnG;
                 document.getElementById("Br").value=btnB;
               },1);
+              rgbtohex();
             };
             mm1.onmouseup = function(plus){
                 clearInterval(go);
@@ -143,6 +147,7 @@
                 document.getElementById("Gr").value=btnG;
                 document.getElementById("Br").value=btnB;
               },1);
+              rgbtohex();
             };
             rr1.onmouseup = function(plus){
                 clearInterval(go);
@@ -151,10 +156,18 @@
                 clearInterval(go);
             }
 
+/////////////////印出文字/////////////////
+            rgbtohex();
+
+            function rgbtohex(){
+             
+              rgb.innerHTML = `#${btnR.toString(16).padStart(2, '0')}${btnG.toString(16).padStart(2, '0')}${btnB.toString(16).padStart(2, '0')}`
+            }
 
             //隨機出色
             function rColor(){
               rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+              rgbtohex();
               return "rgb("+btnR+","+btnG+","+btnB+")";
               };
 
@@ -168,7 +181,7 @@
                 }else{
                   btnR=RR;
                   rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
-                 
+                  rgbtohex();
                 }
             }
             //G鍵改色
@@ -181,6 +194,7 @@
                 }else{
                     btnG=GG;
                     rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                    rgbtohex();
                 }
             }
             //B鍵改色
@@ -193,6 +207,7 @@
                 }else{
                     btnB=BB;
                     rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                    rgbtohex();
                 }
             }
         
@@ -208,11 +223,11 @@
                         rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";                   
                     break;
                     case 'Br' :
-                    btnB=labar.value;
+                        btnB=labar.value;
                         rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
-                        
                     break;
                 }
+                rgbtohex();
             }
 
             
