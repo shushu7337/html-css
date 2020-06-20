@@ -144,7 +144,13 @@
                         popup: "animate__animated animate__fadeOutUp",
                       },
                     }).then((result)=>{
-                      if(result.value){
+                      if(result.dismiss === "cancel"){
+                        Swal.fire({
+                          title:'挑戰失敗!',
+                          text:'小混混原來是失散多年的女友哥哥直接被TKO'+'\n'+'女友難過到直接分手',
+                          confirmButtonText: "可惡!!",
+                        })
+                      }else{
                         Swal.fire({
                           title: '挑戰通過!',
                           text: "點火時照亮了頭頭臉龐，原來是失散多年的女友哥哥啊!先花了三百收買，伯父損失一名大將，元氣大傷扣了30hp",
@@ -153,12 +159,12 @@
                           imageHeight: 300,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33'
-                        }).then((result)=>{
+                        }).then(function(){
                           Swal.fire({
-                            title: "危機四伏",
+                            title: " 危機四伏",
                             text:
-                              "到家裡附近的屏東海生館走走"+"\n"+"女友突然發現有最喜愛的企鵝餵食秀並呼喚著你一起加入"+"\n"+"要一起玩樂嗎?" ,
-                            confirmButtonText: "那麼可愛當然一起play one",
+                              "到家裡附近的屏東海生館走走"+"\r"+"女友突然發現有最喜愛的企鵝餵食秀並呼喚著你一起加入"+"\r"+"要一起玩樂嗎?" ,
+                            confirmButtonText: "那麼可愛當然一起play one ",
                             cancelButtonText: "回想起大學念動科鏟了四年的屎,果斷拒絕",
                             showCancelButton: true,
                             allowOutsideClick: false,
@@ -172,16 +178,57 @@
                             hideClass: {
                               popup: "animate__animated animate__fadeOutUp",
                             },
+                          }).then((result)=>{
+                            if(result.dismiss !== "cancel"){
+                              Swal.fire({
+                                title: "挑戰失敗!",
+                                text: "發現伯父混在其中，直接被帶走一波",
+                                confirmButtonText: "可惡!!",
+                              });
+                            }else{
+                              Swal.fire({
+                                title: "挑戰通過!",
+                                text: "混在其中的伯父因企鵝裝太熱直接中暑扣了30hp!",
+                                allowOutsideClick:false
+                              })
+                            }
+                          }).then (function(){
+                            Swal.fire({
+                              title: "過五關斬六將",
+                              text:
+                                "女友生日想先給個驚喜到他家布置"+"\r"+"殊不知一開門被女友姊姊感性告白"+"\r"+"請問單兵該如何處理?",
+                              confirmButtonText: "小孩才做選擇"+"\r"+"我"+"\n"+"都"+"\n"+"要! ",
+                              cancelButtonText: "先躲個廁所好好思考該如何是好 ",
+                              showCancelButton: true,
+                              allowOutsideClick: false,
+                              imageUrl: "files/10.jpg",
+                              imageHeight: 300,
+                              confirmButtonColor: "#3085d6",
+                              cancelButtonColor: "#d33",
+                              showClass: {
+                                popup: "animate__animated animate__fadeInDown",
+                              },
+                              hideClass: {
+                                popup: "animate__animated animate__fadeOutUp",
+                              },
+                            }).then((result)=>{
+                              if(result.dismiss !== "cancel"){
+                                Swal.fire({
+                                  title:"挑戰成功!!",
+                                  text:"了不起!負責!"+"\r"+"愛屋及烏讓女友十分感動直接進入人生下一階段!伯父hp歸零直接氣到出家",
+                                  allowOutsideClick: false,
+                                  imageUrl: 'files/32.jpg',
+                                  imageHeight: 300
+                                })
+                              }else{
+                                Swal.fire({
+                                  title:'挑戰失敗!',
+                                  text:'想到一夜頭禿，索性直接加入英雄行列為世界鏟奸除惡! ',
+                                  confirmButtonText: "可惡!!",
+                              })
+                            }
+                            })
                           })
-                        }).then((resul)=>{
-                          
-                        })
-
-                      }else{
-                        Swal.fire({
-                          title:'挑戰失敗!',
-                          text:'小混混原來是失散多年的女友哥哥直接被TKO'+'\n'+'女友難過到直接分手',
-                          confirmButtonText: "可惡!!",
                         })
                       }
                     })
