@@ -1,81 +1,100 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+  <head runat="server">
     <title>setTimeout</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div id="d1">
-        </div>
-        <div class="clock">
-            <p id="time" class="time">12:00:00</p>
-            <p id="date" class="date">2220-42-13-Thu</p>
-        </div>
-    </form>
-</body>
+    <style>
+        
+    </style>
+  </head>
+  <body>
+    
+      <!-- <div id="d1"></div> -->
+      
+      <div class="clock">
+        <p id="date" class="date">12:00:00</p>
+        <p id="time" class="time">12:00:00</p>
+      </div>
+  </body>
 </html>
 
 <script>
-    var Today=new Date();
-　document.write("今天日期是 " + Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日");
-var time=new Date();    //會得到一個 obj
-        var time_str=Date();    //會得到一個 str
 
-        var cTime1=new Date();  //月份是0~11
-        console.log(cTime1);
-        var cTime2=new Date("2020-9-13T23:59:59");  //ISO8601表示法 沒有毫秒
-        console.log(cTime2);
-
-console.log("----------------")
-
-        time.getFullYear();     //西元年
-        time.getMonth();        //月 0~11
-        time.getDay();          //日
-        time.getDate();         //星期
-        time.getHours();         //小時
-        time.getMinutes();         //分
-        time.getSeconds();         //秒
+  var cTime1 = new Date(); //月份是0~11
+//   console.log(cTime1);
+  var cTime2 = new Date("2020-09-13T23:59:59"); //ISO8601表示法 沒有毫秒
+//   console.log(cTime2);
 
 
-// 利用時間戳記 來做倒數
-// 時間戳記最後三碼是毫秒 可以省略
-        var beto=cTime2.getTime()-time.getTime();
-        console.log(beto);
-
-        beto=Math.floor(beto/1000);
-        console.log(beto);
-
-        var X= Math.floor(beto/86400);  
-        console.log(X+"天")
-        var Y= Math.floor((beto % 86400)/3600); 
-        console.log(Y+"時")
-        var Z= Math.floor(((beto % 86400)%3600/60));  
-        console.log(Z+"分")
-        var K= Math.floor(beto % 86400)%3600%60;
-        console.log(K+"秒")
-
-        console.log(`距離今年跨年只剩下${X}天${Y}時${Z}分${K}秒`);
-
-//設定倒數秒數
-var t = 60;
-
-//顯示倒數秒收
-function showTime()
-{
-    t -= 1;
-    document.getElementById('d1').innerHTML= t;
+    // 處理時間變化
     
-    if(t==0)
-    {
-        location.href='https://wdaweb.github.io/';
+    function runtime(){
+
+        time = new Date();
+
+        time.getFullYear(); //西元年
+        time.getMonth(); //月 0~11
+        time.getDay(); //日
+        time.getDate(); //星期
+        time.getHours(); //小時
+        time.getMinutes(); //分
+        time.getSeconds(); //秒
+        time.getMilliseconds();//毫秒
+        
+        J=time.getMilliseconds();
+
+        var beto = cTime2.getTime() - time.getTime();
+        var beto = Math.floor(beto / 1000);
+
+        var X = Math.floor(beto / 86400);
+        // console.log(X + "天");
+        var Y = Math.floor((beto % 86400) / 3600);
+        // console.log(Y + "時");
+        var Z = Math.floor(((beto % 86400) % 3600) / 60);
+        // console.log(Z + "分");
+        var K = (Math.floor(beto % 86400) % 3600) % 60;
+        // console.log(K + "秒");
+        // var J = (Math.floor(beto % 86400) % 3600) % 60/1000;
+        document.getElementById("date").textContent=X;
+        document.getElementById("time").textContent=`${Y}:${Z}:${K}:${J}`;
     }
-    
-    //每秒執行一次,showTime()
-    setTimeout("showTime()",1000);
-}
-
-//執行showTime()
-showTime();
-</script>
  
+
+
+//   設定倒數秒數
+  
+
+  //顯示倒數秒收
+  function showTime() {
+    time = new Date();
+
+    time.getFullYear(); //西元年
+    time.getMonth(); //月 0~11
+    time.getDay(); //日
+    time.getDate(); //星期
+    time.getHours(); //小時
+    time.getMinutes(); //分
+    time.getSeconds(); //秒
+    time.getTime();
+
+    var beto = cTime2.getTime() - time.getTime();
+    var beto = Math.floor(beto / 1000);
+    beto -= 1;
+    // document.getElementById("d1").innerHTML = beto;
+
+    if (beto == 0) {
+      location.href = "https://wdaweb.github.io/";
+    }
+
+    //每秒執行一次,showTime()
+    setTimeout("showTime()", 1000);
+    
+  }
+  
+
+  //執行showTime()
+  showTime();
+   // 預先執行載入
+   runtime();
+    // 重複載入
+    setInterval(runtime,1);
+</script>
