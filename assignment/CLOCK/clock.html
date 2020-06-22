@@ -1,136 +1,224 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <title>setTimeout</title>
     <style>
-        *{
-            margin: 0;
-        }
-        .circle{
-            position: relative;
-            margin: 20vh 30vh  20vh;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-flow: column nowrap;
-            width: 300px;
-            height: 300px;
-            background: rgb(247, 251, 255);
-            border-radius: 50%;
-            border: lightslategray 50px solid;
-            animation:circlea 30s linear infinite;
-            animation-fill-mode: both;
-        }
-        .clock{
-            font-family: 'Press Start 2P', cursive;
-            position: absolute;
-        }
-        
-        .f1{
-            background: url("footprint=front.gif") no-repeat center;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            left: 300px;
-            animation:frontf 1s linear;
-            animation-duration:2;
-            animation-timing-function: steps(1);
-            }
-        .f2{
-            background: url("footprint=back.gif") no-repeat center;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            left: 300px;
-            top: 138px;
-            transform: rotate(-4deg);
-            animation:frontf 1s 1s linear;
-            animation-duration:2;
-            animation-timing-function: steps(1);
-            }
-        .f3{
-            background: url("footprint=back.gif") no-repeat center;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            left: 297px;
-            top: 93px;
-            animation:frontf 1s 2s linear ;
-            animation-duration:2;
-            animation-timing-function: steps(1);
-            transform: rotate(-12deg);
-            }
-        .f4{
-            background: url("footprint=back.gif") no-repeat center;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            left: 273px;
-            top: 74px;
-            animation: frontf 1s 2s linear;
-            animation-duration: 2;
-            animation-timing-function: steps(1);
-            transform: rotate(-26deg);
-            }
-
-            @keyframes frontf{
-                0%{opacity:0;}
-                50%{opacity:1}
-                100%{opacity:0;}
-                
-            }
-            /* @keyframes frontb{
-                0%{opacity:0;}
-                100%{opacity:1;}
-                
-            } */
-            
-            
-            @keyframes circlea{
-              from{
-                transform:rotate(360deg);
-              }
-              to{
-                transform:rotate(0deg);
-              }
-            }
+  body {
+    margin: 0;
+    /* font-family:, , sans-serif; */
+    color: white;
+    background-color: #111111;
+    text-align: center;
+    background-repeat: no-repeat;
+  }
+  .clock {
+    position: relative;
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    margin-top: 200px;
+    display: inline-block;
+    padding: 20px ;
+    width: 90%;
+    border: 3px solid rgba(248, 167, 17, 0.973);
+    /* font-size: 10em; */
+    font-weight: 900;
+  }
+  .t1{
+    font-size: 3em;
+    float: left;
+    font-weight: 900;
+  }
+  .t2{
+    position: absolute;
+    border: 4px solid orangered;
+    font-size: 3em;
+    color: orangered;
+    border-radius: 5px;
+    padding: 10px;
+    left: 20px;
+    top: 100px;
+    animation: shu 1s 1s linear infinite;
+  }
+  .t3{
+    position: absolute;
+    border: 4px solid orangered;
+    font-size: 3em;
+    color: orangered;
+    border-radius: 5px;
+    padding: 10px;
+    left: 20px;
+    top: 200px;
+    animation: shu 1s 1s linear infinite;
+  }
+  .t4{
+    position: absolute;
+    border: 5px solid orangered;
+    font-size: 7em;
+    height: 200px;
+    color: orangered;
+    border-radius: 10px;
+    padding: 10px;
+    left: 1120px;
+    top: 30px;
+    animation: shu 1s 1s linear infinite;
+  }
+  .t5{
+    position: absolute;
+    font-size: 3em;
+    height: 200px;
+    color: orangered;
+    border-radius: 10px;
+    padding: 10px;
+    left: 1200px;
+    top: 170px;
+    animation: shu 1s 1s linear infinite;
+  }
+  .date{
+    position: absolute;
+    font-size: 15em;
+    left: 200px;
+    top: 280px;
+  }
+  .tdd{
+    position: absolute;
+    font-size: 4em;
+    left: 500px;
+    top: 450px;
+    color: rgba(248, 167, 17, 0.973);
+  }
+  .time{
+    position: absolute;
+    font-size: 15em;
+    color: white;
+    left: 800px;
+    top: 280px;
+  }
+  .thh{
+    position: absolute;
+    font-size: 4em;
+    left: 910px;
+    top: 450px;
+    color: rgba(248, 167, 17, 0.973);
+  }
+  .tm{
+    position: absolute;
+    font-size: 4em;
+    left: 1210px;
+    top: 450px;
+    color: rgba(248, 167, 17, 0.973);
+  }
+  .ts{
+    position: absolute;
+    font-size: 4em;
+    left: 1510px;
+    top: 450px;
+    color: rgba(248, 167, 17, 0.973);
+  }
+  .tss{
+    position: absolute;
+    color: rgba(248, 167, 17, 0.973);
+    font-size: 4em;
+    left: 1935px;
+    top: 450px;
+  }
+  
+  @keyframes shu{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+  }
     </style>
-</head>
-<body>
-    <div class="circle">
-        <div class="f1" id="fk1"></div>
-        <div class="f2" id="fk2"></div>
-        <div class="f3" id="fk3"></div>
-        <div class="f4" id="fk4"></div>
-    </div>
+  </head>
+  <body>
+    <!-- <div id="d1"></div> -->
+
     <div class="clock">
-        <p id="time" class="time">12:00:00</p>
-        <p id="date" class="date">2220-42-13-Thu</p>
+      <span class="t1">PSYCHOGRAPHIC DISPLAY</span>
+      <span class="t2">APPROACHING LIMITS</span>
+      <span class="t3">DANGER</span>
+      <span class="t4">PHP資料庫網頁設計 </span>
+      <span class="t5">コース 再開する予定 逃げちゃ駄目だ</span>
+      <span id="date" class="date"></span>
+      <span class="tdd">日</span>
+      <span class="thh">時</span>
+      <span class="tm">分</span>
+      <span class="ts">秒</span>
+      <span class="tss">耗</span>
+      <span id="time" class="time"></span>
     </div>
-    <!-- clock -->
-    <script>
-        let week=['SUN','Mon','TUE','WED','THU','FRI','SAT'];
-        function runtime(){
-            nt=new Date();
-            let n_hour  = chkZero(nt.getHours()),
-                n_min   = chkZero(nt.getMinutes()),
-                n_sec   = chkZero(nt.getSeconds()),
-                n_year  = nt.getFullYear(),
-                n_month = chkZero(nt.getMonth()+1),
-                n_date  = chkZero(nt.getDate()),
-                n_day   = nt.getDay();
-            document.getElementById("time").textContent=`${n_hour}:${n_min}:${n_sec}`;
-            document.getElementById("date").textContent=`${n_year}-${n_month}-${n_date} ${week[n_day]}`;
-        }
-        function chkZero(num){
-            return (num<10)?"0"+num:num;
-        }
-        runtime();
-        setInterval(runtime,1000);
-    </script>
-</body>
+  </body>
 </html>
+
+<script>
+  var cTime1 = new Date(); //月份是0~11
+  //   console.log(cTime1);
+  var cTime2 = new Date("2020-09-13T23:59:59"); //ISO8601表示法 沒有毫秒
+  //   console.log(cTime2);
+
+  // 處理時間變化
+
+  function runtime() {
+    time = new Date();
+
+    time.getFullYear(); //西元年
+    time.getMonth(); //月 0~11
+    time.getDay(); //日
+    time.getDate(); //星期
+    time.getHours(); //小時
+    time.getMinutes(); //分
+    time.getSeconds(); //秒
+    time.getMilliseconds(); //毫秒
+
+    J = time.getMilliseconds();
+
+    var beto = cTime2.getTime() - time.getTime();
+    var beto = Math.floor(beto / 1000);
+
+    var X = Math.floor(beto / 86400);
+    // console.log(X + "天");
+    var Y = Math.floor((beto % 86400) / 3600);
+    // console.log(Y + "時");
+    var Z = Math.floor(((beto % 86400) % 3600) / 60);
+    // console.log(Z + "分");
+    var K = (Math.floor(beto % 86400) % 3600) % 60;
+    // console.log(K + "秒");
+    // var J = (Math.floor(beto % 86400) % 3600) % 60/1000;
+    document.getElementById("date").textContent = X;
+    document.getElementById("time").textContent = `${Y}\n\n${Z}\n\n${K}\n\n ${J}`;
+  }
+
+  //   設定倒數秒數
+
+  //顯示倒數秒收
+  function showTime() {
+    time = new Date();
+
+    time.getFullYear(); //西元年
+    time.getMonth(); //月 0~11
+    time.getDay(); //日
+    time.getDate(); //星期
+    time.getHours(); //小時
+    time.getMinutes(); //分
+    time.getSeconds(); //秒
+    time.getTime();
+
+    var beto = cTime2.getTime() - time.getTime();
+    var beto = Math.floor(beto / 1000);
+    beto -= 1;
+    // document.getElementById("d1").innerHTML = beto;
+
+    if (beto == 0) {
+      location.href = "https://wdaweb.github.io/";
+    }
+
+    //每秒執行一次,showTime()
+    setTimeout("showTime()", 1000);
+  }
+
+  //執行showTime()
+  showTime();
+  // 預先執行載入
+  runtime();
+  // 重複載入
+  setInterval(runtime, 1);
+</script>
