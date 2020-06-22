@@ -37,13 +37,13 @@
     <script>
         //取得div 及R G B各別三鍵的值以變數宣告 
             let rgb=document.getElementById("rgb");
-            let btnR=document.getElementById("RR");
-            let btnG=document.getElementById("GG");
-            let btnB=document.getElementById("BB");
+            let btnR_element=document.getElementById("RR");
+            let btnG_element=document.getElementById("GG");
+            let btnB_element=document.getElementById("BB");
             // 三鍵以listener監聽行為
-            btnR.addEventListener("click",crolor);
-            btnG.addEventListener("click",cgolor);
-            btnB.addEventListener("click",cbolor);
+            btnR_element.addEventListener("click",crolor);
+            btnG_element.addEventListener("click",cgolor);
+            btnB_element.addEventListener("click",cbolor);
 
             // 將三鍵的值以亂數顯示
             btnR = Math.floor(Math.random()*256);
@@ -121,19 +121,19 @@
             rgbtohex();
             function rgbtohex(){
               
-              rgb.innerHTML = `#${Number(btnR).toString(16)}${Number(btnG).toString(16)}${Number(btnB).toString(16)}`
               rgb.style.color="rgb("+(255-btnR)+","+(255-btnG)+","+(255-btnB)+")"
               rgb.style.fontSize="50px"
-              if(Number(btnR)<"9"){
-                "0"+Number(btnR)
+              if(Number(btnR).toString(16).length <2){
+                btnR = "0"+Number(btnR).toString(16)
               }
-              if(Number(btnG)<"9"){
-                "0"+Number(btnR)
+              if(Number(btnG).toString(16).length <2){
+                btnG = "0"+Number(btnG).toString(16)
               }
-              if(Number(btnB)<"9"){
-                "0"+Number(btnR)
+              if(Number(btnB).toString(16).length <2){
+                btnB = "0"+Number(btnB).toString(16)
               }
-              console.log(btnR.toString(16),btnG.toString(16),btnB.toString(16))
+              rgb.innerHTML = `#${btnR.toString(16)}${btnG.toString(16)}${btnB.toString(16)}`
+              console.log(btnR,btnG,btnB)
               
             }
 
