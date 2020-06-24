@@ -17,47 +17,43 @@
         .bg{
             height: 100vh;
             width: 100vw;
-            background: url("mockup-graphics-Rc1mMjR6bbo-unsplash.jpg") no-repeat;
+            /* background: url("mockup-graphics-Rc1mMjR6bbo-unsplash.jpg") no-repeat; */
             background-attachment: fixed;
             background-position: center;
             background-size: contain;
+            position: relative;
         }
         .con{
-            /* background:lightblue; */
             width: 500px;
             height: 500px;
-            position: relative;
-            left: 40%;
-            top: 30%;
+            position: absolute;
+            left: 25%;
+            top: 25%;
         }
         .jmin2{
-            background: lightcoral;
+            position: absolute;
             width: 30px;
             height: 500px;
             background: url("mm.png");
             background-attachment: fixed;
             background-size: contain;
-            position: absolute;
+            position: relative;
             left: 50%;
             margin-left: -15px;
         }   
         .jhour2{
+            position: absolute;
             width: 30px;
             height: 500px;
             background: url("hh.png");
-            background-attachment: fixed;
-            background-size: contain;
-            position: absolute;
             left: 50%;
             margin-left: -15px;
         }
         .jsec2{
+            position: absolute;
             width: 30px;
             height: 500px;
             background: url("ss.png");
-            background-attachment: fixed;
-            background-size: contain;
-            position: absolute;
             left: 50%;
             margin-left: -15px;
         }
@@ -94,11 +90,9 @@
 </script>
 <body>
    <div class="bg">
-       <div class="con">
             <div class="jmin2 "></div>
             <div class="jhour2 "></div>
             <div class="jsec2 "></div>
-        </div>
     </div>
    
     <script>
