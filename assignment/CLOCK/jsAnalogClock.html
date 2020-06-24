@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <title>類比時鐘</title>
     <style>
         body{
@@ -13,49 +14,74 @@
             align-items: center;
             height: 100vh;
             width: 100vw;
+            font-family: 'Indie Flower', cursive;
         }
         .bg{
             height: 100vh;
             width: 100vw;
-            /* background: url("mockup-graphics-Rc1mMjR6bbo-unsplash.jpg") no-repeat; */
+            background: url("mockup-graphics-Rc1mMjR6bbo-unsplash.jpg") no-repeat;
             background-attachment: fixed;
             background-position: center;
             background-size: contain;
             position: relative;
         }
-        .con{
+        .circle{    /*圓盤*/
             width: 500px;
             height: 500px;
-            position: absolute;
-            left: 25%;
-            top: 25%;
+            /* background: rgb(226, 214, 177); */
+            border-radius: 50%;
+            margin: auto;
+            margin-top: 10%;
+            /* position: absolute; */
         }
         .jmin2{
             position: absolute;
-            width: 30px;
-            height: 500px;
-            background: url("mm.png");
-            background-attachment: fixed;
-            background-size: contain;
-            position: relative;
+            width: 10px;
+            height: 300px;
+            background: url("m.png");
             left: 50%;
-            margin-left: -15px;
+            margin-left: -5px;
+            top: 34%;
         }   
         .jhour2{
             position: absolute;
-            width: 30px;
-            height: 500px;
-            background: url("hh.png");
+            width: 10px;
+            height: 300px;
+            background: url("h.png");
             left: 50%;
-            margin-left: -15px;
+            margin-left: -5px;
+            top: 34%;
+    
         }
         .jsec2{
             position: absolute;
-            width: 30px;
-            height: 500px;
-            background: url("ss.png");
+            width: 10px;
+            height: 300px;
+            background: url("s.png");
             left: 50%;
-            margin-left: -15px;
+            margin-left: -5px;
+            top: 34%;
+        }
+        .numm{
+            width: 450px;
+            height: 450px; 
+            z-index: 99;
+        }
+        .numm div{
+            color: #000;
+            text-align: center;
+            width: 60px;
+            height: 500px;
+            position: absolute;
+            left: 48.5%;
+            font-size: 4em;
+        }
+        #numm span{
+            width: 60px;
+            line-height: 60px;
+            text-align: center;
+            display: block;
+            position: absolute  ;
         }
         
 
@@ -89,13 +115,40 @@
         
 </script>
 <body>
-   <div class="bg">
-            <div class="jmin2 "></div>
-            <div class="jhour2 "></div>
-            <div class="jsec2 "></div>
+    <div class="bg">
+        <div class="circle">
+            <div id="numm" class="numm">
+                <div><span>12</span></div>
+                <div><span>1</span></div>
+                <div><span>2</span></div>
+                <div><span>3</span></div>
+                <div><span>4</span></div>
+                <div><span>5</span></div>
+                <div><span>6</span></div>
+                <div><span>7</span></div>
+                <div><span>8</span></div>
+                <div><span>9</span></div>
+                <div><span>10</span></div>
+                <div><span>11</span></div>
+            </div>
+        <!-- div.jmin2+div.jhour2+div.jsec2 -->
+        <div class="jmin2"></div>
+        <div class="jhour2"></div>
+        <div class="jsec2"></div>
     </div>
+    </div>
+        
    
     <script>
+        // 外圍數字
+         let nummDiv=document.querySelectorAll("#numm div");
+            for (let i=0; i < nummDiv.length ; i++){
+                nummDiv[i].style.transform="rotate("+ i * 30 + "deg)";
+                nummDiv[i].firstChild.style.transform="rotate("+(-i*30)+"deg)";
+            }
+
+            
+        
         // 第一次載入時間並作時、分、秒的定位，如果隱蔽的話剛載入會是在12的位置
             document.getElementsByClassName("jmin2")[0].style.transform=`rotate(${y}deg)`;
             document.getElementsByClassName("jhour2")[0].style.transform="rotate("+z+"deg)";

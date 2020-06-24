@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .circle{    /*圓盤*/
+        width: 400px;
+        height: 400px;
+        background: rgb(226, 214, 177);
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 12%;
+        /* position: absolute; */
+    }
+    .numm{
+            width: 400px;
+            height: 400px; 
+            margin: 175px;
+            margin-left: 610px;
+            z-index: 99;
+        }
+        .numm div{
+            text-align: center;
+            width: 20px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+    <div id="numm">
+        <div><span>12</span></div>
+        <div><span>1</span></div>
+        <div><span>2</span></div>
+        <div><span>3</span></div>
+        <div><span>4</span></div>
+        <div><span>5</span></div>
+        <div><span>6</span></div>
+        <div><span>7</span></div>
+        <div><span>8</span></div>
+        <div><span>9</span></div>
+        <div><span>10</span></div>
+        <div><span>11</span></div>
+    </div>
+</div>
+</body>
+<script>
+ let nummDiv=document.querySelectorAll("#numm div");
+            for (let i=0; i < nummDiv.length ; i++){
+                nummDiv[i].style.transform="rotate("+ i * 30 + "deg)";
+                nummDiv[i].firstChild.style.transform="rotate(" + -i * 30 + "deg)";
+            }
+
+
+</script>
+</html>
