@@ -17,49 +17,47 @@
         .bg{
             height: 100vh;
             width: 100vw;
-            /* background: url("mockup-graphics-Rc1mMjR6bbo-unsplash.jpg") no-repeat; */
+            background: url("mockup-graphics-Rc1mMjR6bbo-unsplash.jpg") no-repeat;
             background-attachment: fixed;
             background-position: center;
             background-size: contain;
         }
-        .con{
-            /* background:lightblue; */
-            width: 500px;
-            height: 500px;
+        .circle{    /*圓盤*/
+            width: 400px;
+            height: 400px;
+            background: rgb(226, 214, 177);
+            border-radius: 50%;
+            margin: 175px;
+            margin-left: 610px;
             position: relative;
-            left: 40%;
-            top: 30%;
         }
         .jmin2{
-            background: lightcoral;
-            width: 30px;
-            height: 500px;
-            background: url("mm.png");
-            background-attachment: fixed;
-            background-size: contain;
             position: absolute;
+            width: 10px;
+            height: 300px;
+            background: url("m.png");
             left: 50%;
-            margin-left: -15px;
+            margin-left: -5px;
+            top: 10%;
         }   
         .jhour2{
-            width: 30px;
-            height: 500px;
-            background: url("hh.png");
-            background-attachment: fixed;
-            background-size: contain;
             position: absolute;
+            width: 10px;
+            height: 300px;
+            background: url("h.png");
             left: 50%;
-            margin-left: -15px;
+            margin-left: -5px;
+            top: 10%;
+    
         }
         .jsec2{
-            width: 30px;
-            height: 500px;
-            background: url("ss.png");
-            background-attachment: fixed;
-            background-size: contain;
             position: absolute;
+            width: 10px;
+            height: 300px;
+            background: url("s.png");
             left: 50%;
-            margin-left: -15px;
+            margin-left: -5px;
+            top: 10%;
         }
         
 
@@ -93,15 +91,34 @@
         
 </script>
 <body>
-   <div class="bg">
-       <div class="con">
-            <div class="jmin2 "></div>
-            <div class="jhour2 "></div>
-            <div class="jsec2 "></div>
-        </div>
+    <div class="bg">
+        <div class="circle">
+            <div id="numm">
+                <div><span>9</span></div>
+                <div><span>10</span></div>
+                <div><span>11</span></div>
+                <div><span>12</span></div>
+                <div><span>1</span></div>
+                <div><span>2</span></div>
+                <div><span>3</span></div>
+                <div><span>4</span></div>
+                <div><span>5</span></div>
+                <div><span>6</span></div>
+                <div><span>7</span></div>
+                <div><span>8</span></div>
+            </div>
+        <!-- div.jmin2+div.jhour2+div.jsec2 -->
+        <!-- <div class="jmin2"></div>
+        <div class="jhour2"></div>
+        <div class="jsec2"></div> -->
+    </div>
     </div>
    
     <script>
+        var nummDiv=document.querySelectorAll("#numm div");
+            for (var i=0; i < nummDiv.length ; i++){
+                nummDiv[i].style.transform="rotate("+ i * 30 + "deg)";
+            }
         // 第一次載入時間並作時、分、秒的定位，如果隱蔽的話剛載入會是在12的位置
             document.getElementsByClassName("jmin2")[0].style.transform=`rotate(${y}deg)`;
             document.getElementsByClassName("jhour2")[0].style.transform="rotate("+z+"deg)";
@@ -117,7 +134,7 @@
             let z=(pos_h*60*60+pos_m*60+pos_s)*0.00833;
             document.getElementsByClassName("jmin2")[0].style.transform=`rotate(${y}deg)`;
             document.getElementsByClassName("jhour2")[0].style.transform="rotate("+z+"deg)";
-            document.getElementsByClassName("jsec2")[0].style.transform="rotate("+x+"deg)";
+            document.getElementsByClassName("jsec2")[0].style.transform="rotate("+"30"+"deg)";
         }
         // 給一個連續執行
         setInterval(go,1000);
