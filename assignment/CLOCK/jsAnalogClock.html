@@ -21,39 +21,43 @@
             background-attachment: fixed;
             background-position: center;
             background-size: contain;
-            position: relative;
         }
         .con{
+            /* background:lightblue; */
             width: 500px;
             height: 500px;
-            position: absolute;
-            left: 25%;
-            top: 25%;
+            position: relative;
+            left: 40%;
+            top: 30%;
         }
         .jmin2{
-            position: absolute;
+            background: lightcoral;
             width: 30px;
             height: 500px;
             background: url("mm.png");
             background-attachment: fixed;
             background-size: contain;
-            position: relative;
+            position: absolute;
             left: 50%;
             margin-left: -15px;
         }   
         .jhour2{
-            position: absolute;
             width: 30px;
             height: 500px;
             background: url("hh.png");
+            background-attachment: fixed;
+            background-size: contain;
+            position: absolute;
             left: 50%;
             margin-left: -15px;
         }
         .jsec2{
-            position: absolute;
             width: 30px;
             height: 500px;
             background: url("ss.png");
+            background-attachment: fixed;
+            background-size: contain;
+            position: absolute;
             left: 50%;
             margin-left: -15px;
         }
@@ -90,9 +94,11 @@
 </script>
 <body>
    <div class="bg">
+       <div class="con">
             <div class="jmin2 "></div>
             <div class="jhour2 "></div>
             <div class="jsec2 "></div>
+        </div>
     </div>
    
     <script>
