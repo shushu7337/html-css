@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>類比時鐘</title>
+    <style>
+        body{
+            margin: 0;
+            background: #ccc;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+        }
+        h3{
+            text-align: center;
+            position: relative;
+            top: 10%;
+        }
+        .circle{    /*圓盤*/
+            width: 300px;
+            height: 300px;
+            background: rgb(226, 214, 177);
+            border-radius: 50%;
+            margin: 20px;
+            position: relative;
+        }
+        .jhour1{
+            width: 8px;
+            height: 30%;
+            background: rgb(113, 184, 180);
+            position: absolute;
+            left: 50%;
+            top: 25%;   /*時針原先長度已經為30% ，在圓內還有70%，我們再多給5% => 100%-30%(原有的)=70%  要再減20%才會到中間 然後我們多給5%*/
+            margin-left: -4px;
+            
+        }
+        .jmin1{
+            width: 8px;
+            height: 40%;
+            background: rgb(115, 192, 147);
+            position: absolute;
+            left: 50%;
+            top:15%;
+            margin-left: -4px;
+           
+        }
+        .jsec1{
+            width: 4px;
+            height: 50%;
+            background: lightcoral;
+            position: absolute;
+            left: 50%;
+            margin-left: -2px;
+            top: 5%;
+            
+        }
+        .zmin1{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            animation:j_min 3600s infinite linear;
+        }
+        .zhour1{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            animation:j_hour 43200s infinite linear;
+        }
+        .zsec1{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            animation:j_sec calc(6s*10) infinite linear;
+        }
+
+        .jmin2{
+            position: absolute;
+            width: 10px;
+            height: 300px;
+            background: url("m.png");
+            left: 50%;
+            margin-left: -5px;
+            animation:j_min 3600s infinite linear;
+        }   
+        .jhour2{
+            position: absolute;
+            width: 10px;
+            height: 300px;
+            background: url("h.png");
+            left: 50%;
+            margin-left: -5px;
+            animation:j_hour 43200s infinite linear;
+        }
+        .jsec2{
+            position: absolute;
+            width: 10px;
+            height: 300px;
+            background: url("s.png");
+            left: 50%;
+            margin-left: -5px;
+            animation:j_sec calc(6s*10) infinite linear;
+        }
+        .rmin3{
+            animation:j_min 3600s infinite linear;
+            transform-origin: 50% 87.5%;
+        }
+        .rhour3{
+            animation:j_hour 43200s infinite linear;
+            transform-origin: 50% 83.5%;
+        }
+        .rsec3{
+            animation:j_sec calc(6s*10) infinite linear;
+            transform-origin: 50% 90%;
+        }
+
+
+        .rmin4{
+            transform-origin: 50% 87.5%;
+        }
+        .rhour4{
+            transform-origin: 50% 83.5%;
+        }
+        .rsec4{
+            transform-origin: 50% 90%;
+        }
+        
+    </style>
+</head>
+<script>
+    /*如果假設是23:59:59，如何換出H,M,S的角度
+    
+    S:59 ->   360度/60秒 >     6 deg/sec * 59  => 354 deg
+    M:59 ->   360度/60分 >     6 deg/min * 59  => 354 deg               (低標版)
+         ->   360度/3600秒 > 0.1 deg/sec  => 59分59秒 = (59 * 60 + 59 sec)=3599 =>3599 * 0.1 deg = 359.9    (高標版)
+    H:23 ->   360度/12時 >    30 deg/hour => 23 * 30 = 360 + 330        (低標版)
+              360度/12*60分 > 0.5 deg/min => 23時59分 = (23 * 60 + 59 = 1439)min = > 719.5 =360+359.5   (中規版)
+              360度/43200秒 > 0.00833 deg/sec => 23時59分59秒 = (23 * 60 * 60 + 59 * 60 + 59) =>86399 *0.00833 deg =719.70367 =>360+359.70367    (高標版)
+    */
+    let time = new Date();
+    let pos_s=time.getSeconds();
+    let pos_m=time.getMinutes();
+    let pos_h=time.getHours();
+    let x=pos_s*6;
+    let y=(pos_m*60+pos_s)*0.1;
+    let z=(pos_h*60*60+pos_m*60+pos_s)*0.00833;
+
+    document.write(`
+    <style>
+        @keyframes j_min {
+            from{
+                transform: rotate(${y}deg);
+            }
+            to{
+                transform: rotate(${y+360}deg);
+            }
+        }
+        @keyframes j_hour {
+            from{
+                transform: rotate(${z}deg);
+            }
+            to{
+                transform: rotate${z+360}deg);  
+            }
+        }
+        @keyframes j_sec {
+            from{
+                transform: rotate(${x}deg);
+            }
+            to{
+                transform: rotate(${x+360}deg); 
+            }
+        }
+        </style>`)
+
+        // 使用window.onload讓此函式在載入完頁面後執行此function
+
+        // window.onload = function clk(){
+        //     document.getElementsByClassName("rmin4")[0].style.transform=`rotate(${y}deg)`;
+        //     document.getElementsByClassName("rhour4")[0].style.transform="rotate("+z+"deg)";
+        //     document.getElementsByClassName("rsec4")[0].style.transform="rotate("+x+"deg)";
+        // };
+
+        
+</script>
+<body>
+    <!-- 時鐘有一個圓，有三根針 -->
+    <div class="circle">
+        <!-- 讓順序顯現出來 -->
+        <!-- 使用兩個div來做，z做旋轉，j被旋轉 -->
+        <div class="zmin1"><div class="jmin1"></div></div>
+        <div class="zhour1"><div class="jhour1"></div></div>
+        <div class="zsec1"><div class="jsec1"></div></div>
+        <h3>雙DIV + CSS Animation</h3>
+    </div>
+    <div class="circle">
+        <!-- div.jmin2+div.jhour2+div.jsec2 -->
+        <div class="jmin2"></div>
+        <div class="jhour2"></div>
+        <div class="jsec2"></div>
+        <h3>圖片+CSS Animation</h3>
+    </div>
+    <div class="circle">
+        <div class="jmin1 rmin3"></div>
+        <div class="jhour1 rhour3"></div>
+        <div class="jsec1 rsec3"></div>
+        <h3>CSS's Offset & Animation</h3>
+    </div>
+    <div class="circle">
+        <div class="jmin1 rmin4"></div>
+        <div class="jhour1 rhour4"></div>
+        <div class="jsec1 rsec4"></div>
+        <h3>CSS's Offset + Js Interval </h3>
+    </div>
+    <script>
+        // 第一次載入時間並作時、分、秒的定位，如果隱蔽的話剛載入會是在12的位置
+            document.getElementsByClassName("rmin4")[0].style.transform=`rotate(${y}deg)`;
+            document.getElementsByClassName("rhour4")[0].style.transform="rotate("+z+"deg)";
+            document.getElementsByClassName("rsec4")[0].style.transform="rotate("+x+"deg)";
+
+            function go(){
+            let time = new Date();
+            let pos_s=time.getSeconds();
+            let pos_m=time.getMinutes();
+            let pos_h=time.getHours();
+            let x=pos_s*6;
+            let y=(pos_m*60+pos_s)*0.1;
+            let z=(pos_h*60*60+pos_m*60+pos_s)*0.00833;
+            document.getElementsByClassName("rmin4")[0].style.transform=`rotate(${y}deg)`;
+            document.getElementsByClassName("rhour4")[0].style.transform="rotate("+z+"deg)";
+            document.getElementsByClassName("rsec4")[0].style.transform="rotate("+x+"deg)";
+        }
+        // 給一個連續執行
+        setInterval(go,1000);
+    </script>
+</body>
+</html>

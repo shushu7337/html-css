@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>類比時鐘</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        .bg{
+            height: 100vh;
+            width: 100vw;
+            background: url("mockup-graphics-Rc1mMjR6bbo-unsplash.jpg") no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: contain;
+            position: relative;
+        }
+        .con{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 25%;
+            top: 25%;
+        }
+        .jmin2{
+            position: absolute;
+            width: 30px;
+            height: 500px;
+            background: url("mm.png");
+            background-attachment: fixed;
+            background-size: contain;
+            position: relative;
+            left: 50%;
+            margin-left: -15px;
+        }   
+        .jhour2{
+            position: absolute;
+            width: 30px;
+            height: 500px;
+            background: url("hh.png");
+            left: 50%;
+            margin-left: -15px;
+        }
+        .jsec2{
+            position: absolute;
+            width: 30px;
+            height: 500px;
+            background: url("ss.png");
+            left: 50%;
+            margin-left: -15px;
+        }
+        
+
+    </style>
+</head>
+<script>
+    /*如果假設是23:59:59，如何換出H,M,S的角度
+    
+    S:59 ->   360度/60秒 >     6 deg/sec * 59  => 354 deg
+    M:59 ->   360度/60分 >     6 deg/min * 59  => 354 deg               (低標版)
+         ->   360度/3600秒 > 0.1 deg/sec  => 59分59秒 = (59 * 60 + 59 sec)=3599 =>3599 * 0.1 deg = 359.9    (高標版)
+    H:23 ->   360度/12時 >    30 deg/hour => 23 * 30 = 360 + 330        (低標版)
+              360度/12*60分 > 0.5 deg/min => 23時59分 = (23 * 60 + 59 = 1439)min = > 719.5 =360+359.5   (中規版)
+              360度/43200秒 > 0.00833 deg/sec => 23時59分59秒 = (23 * 60 * 60 + 59 * 60 + 59) =>86399 *0.00833 deg =719.70367 =>360+359.70367    (高標版)
+    */
+    let time = new Date();
+    let pos_s=time.getSeconds();
+    let pos_m=time.getMinutes();
+    let pos_h=time.getHours();
+    let x=pos_s*6;
+    let y=(pos_m*60+pos_s)*0.1;
+    let z=(pos_h*60*60+pos_m*60+pos_s)*0.00833;
+        // 使用window.onload讓此函式在載入完頁面後執行此function
+
+        // window.onload = function clk(){
+        //     document.getElementsByClassName("rmin4")[0].style.transform=`rotate(${y}deg)`;
+        //     document.getElementsByClassName("rhour4")[0].style.transform="rotate("+z+"deg)";
+        //     document.getElementsByClassName("rsec4")[0].style.transform="rotate("+x+"deg)";
+        // };
+
+        
+</script>
+<body>
+   <div class="bg">
+            <div class="jmin2 "></div>
+            <div class="jhour2 "></div>
+            <div class="jsec2 "></div>
+    </div>
+   
+    <script>
+        // 第一次載入時間並作時、分、秒的定位，如果隱蔽的話剛載入會是在12的位置
+            document.getElementsByClassName("jmin2")[0].style.transform=`rotate(${y}deg)`;
+            document.getElementsByClassName("jhour2")[0].style.transform="rotate("+z+"deg)";
+            document.getElementsByClassName("jsec2")[0].style.transform="rotate("+x+"deg)";
+
+            function go(){
+            let time = new Date();
+            let pos_s=time.getSeconds();
+            let pos_m=time.getMinutes();
+            let pos_h=time.getHours();
+            let x=pos_s*6;
+            let y=(pos_m*60+pos_s)*0.1;
+            let z=(pos_h*60*60+pos_m*60+pos_s)*0.00833;
+            document.getElementsByClassName("jmin2")[0].style.transform=`rotate(${y}deg)`;
+            document.getElementsByClassName("jhour2")[0].style.transform="rotate("+z+"deg)";
+            document.getElementsByClassName("jsec2")[0].style.transform="rotate("+x+"deg)";
+        }
+        // 給一個連續執行
+        setInterval(go,1000);
+    </script>
+</body>
+</html>

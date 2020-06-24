@@ -54,23 +54,25 @@
   .t4{
     position: absolute;
     border: 5px solid orangered;
-    font-size: 7em;
+    font-size: 5em;
     height: 200px;
     color: orangered;
     border-radius: 10px;
     padding: 10px;
-    left: 1120px;
+    float: right;
+    left: 850px;
     top: 30px;
     animation: shu 1s 1s linear infinite;
   }
   .t5{
     position: absolute;
-    font-size: 3em;
+    font-size: 2.5em;
     height: 200px;
     color: orangered;
     border-radius: 10px;
     padding: 10px;
-    left: 1130px;
+    left: 855px;
+    letter-spacing:3px;
     top: 170px;
     letter-spacing:12px;
     animation: shu 1s 1s linear infinite;
@@ -78,13 +80,13 @@
   .date{
     position: absolute;
     font-size: 15em;
-    left: 200px;
+    left: 100px;
     top: 280px;
   }
   .tdd{
     position: absolute;
     font-size: 4em;
-    left: 500px;
+    left: 350px;
     top: 450px;
     color: rgba(248, 167, 17, 0.973);
   }
@@ -92,37 +94,31 @@
     position: absolute;
     font-size: 15em;
     color: white;
-    left: 800px;
+    left: 500px;
     top: 280px;
   }
   .thh{
     position: absolute;
     font-size: 4em;
-    left: 910px;
+    left: 740px;
     top: 450px;
     color: rgba(248, 167, 17, 0.973);
   }
   .tm{
     position: absolute;
     font-size: 4em;
-    left: 1210px;
+    left: 1030px;
     top: 450px;
     color: rgba(248, 167, 17, 0.973);
   }
   .ts{
     position: absolute;
     font-size: 4em;
-    left: 1510px;
+    left: 1330px;
     top: 450px;
     color: rgba(248, 167, 17, 0.973);
   }
-  .tss{
-    position: absolute;
-    color: rgba(248, 167, 17, 0.973);
-    font-size: 4em;
-    left: 1935px;
-    top: 450px;
-  }
+  
   
   @keyframes shu{
     0%{opacity: 1;}
@@ -144,7 +140,6 @@
       <span class="thh">時</span>
       <span class="tm">分</span>
       <span class="ts">秒</span>
-      <span class="tss">耗</span>
       <span id="time" class="time"></span>
     </div>
   </body>
