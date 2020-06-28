@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puzzle</title>
+    <style>
+      body{
+       background: url(pic/TAKEN.jpg)no-repeat fixed center;
+       background-color: rgb(20, 19, 19);
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link
       rel="stylesheet"
@@ -18,7 +24,6 @@
         Swal.fire({
           title: "歡迎來到最強伯父大考驗",
           text: "準備好接受選擇地獄的試驗了嗎?",
-          icon: "warning",
           imageUrl: './pic/94 you.png',
           // imageWidth: 400,
           imageHeight: 300,
@@ -63,7 +68,7 @@
               imageHeight: 300,
             }).then(startplay);
           } else {
-            name = "小兔崽子";
+            name = "小孬孬";
             Swal.fire({
               imageUrl: "./pic/nogood.jpg",
               // imageWidth: 400,
@@ -121,7 +126,7 @@
                 cancelButtonText: "昨天蹲廁所不慎閃到腰委婉拒絕 ",
                 showCancelButton: true,
                 allowOutsideClick: false,
-                imageUrl: "pic/gogo.jpg",
+                imageUrl: "pic/gogo.png",
                 imageHeight: 300,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
@@ -145,7 +150,7 @@
                     title: "挑戰通過!",
                     text: " 女友聽到後很心疼背你爬象山GET!女友伯父氣到內傷扣了10hp!",
                     allowOutsideClick: false,
-                    imageUrl: 'pic/girlandboy.jpg.jpg',
+                    imageUrl: 'pic/girlandboy.jpg',
                     imageHeight: 300
                   }).then(function(){
                     Swal.fire({
@@ -244,15 +249,17 @@
                               if(result.dismiss !== "cancel"){
                                 Swal.fire({
                                   title:"挑戰成功!!",
-                                  text:"了不起!負責!"+"\r"+"愛屋及烏讓女友十分感動直接進入人生下一階段!伯父hp歸零直接氣到出家",
+                                  text:"了不起!負責!"+"\r"+"愛屋及烏讓女友十分感動直接進入人生下一階段!",
                                   allowOutsideClick: false,
-                                  imageUrl: 'files/32.jpg',
+                                  imageUrl: 'pic/nice.jpg',
                                   imageHeight: 300
                                 })
                               }else{
                                 Swal.fire({
                                   title:'挑戰失敗!',
                                   text:'想到一夜頭禿，索性直接加入英雄行列為世界鏟奸除惡! ',
+                                  imageUrl: 'pic/hero.png',
+                                  imageHeight: 300,
                                   confirmButtonText: "可惡!!",
                               })
                             }
