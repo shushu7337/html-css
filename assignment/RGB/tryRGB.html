@@ -35,15 +35,11 @@
       <button id="ran">random</button>
     </div>
     <script>
-        //取得div 及R G B各別三鍵的值以變數宣告 
             let rgb=document.getElementById("rgb");
-            let btnR_element=document.getElementById("RR");
-            let btnG_element=document.getElementById("GG");
-            let btnB_element=document.getElementById("BB");
             // 三鍵以listener監聽行為
-            btnR_element.addEventListener("click",crolor);
-            btnG_element.addEventListener("click",cgolor);
-            btnB_element.addEventListener("click",cbolor);
+            document.getElementById("RR").addEventListener("click",crolor);
+            document.getElementById("GG").addEventListener("click",cgolor);
+            document.getElementById("BB").addEventListener("click",cbolor);
 
             // 將三鍵的值以亂數顯示
             btnR = Math.floor(Math.random()*256);
@@ -77,7 +73,7 @@
                 document.getElementById("Gr").value=btnG;
                 document.getElementById("Br").value=btnB;
                 rgbtohex();
-              },100);
+              },10);
             };
             pp1.onmouseup = function(plus){
                 clearInterval(go);
@@ -93,7 +89,7 @@
                 document.getElementById("Gr").value=btnG;
                 document.getElementById("Br").value=btnB;
                 rgbtohex();
-              },100);
+              },10);
             };
             mm1.onmouseup = function(plus){
                 clearInterval(go);
@@ -133,7 +129,6 @@
                 btnB = "0"+Number(btnB).toString(16)
               }
               rgb.innerHTML = `#${btnR.toString(16)}${btnG.toString(16)}${btnB.toString(16)}`
-              console.log(btnR,btnG,btnB)
               
             }
 
