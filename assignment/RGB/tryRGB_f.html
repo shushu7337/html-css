@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tryRGB.html</title>
+    <style>
+      .here {
+        height: 200px;
+        width: 300px;
+        margin: auto;
+      }
+      .bln {
+        text-align: center;
+      }
+      .bbt {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rgb" class="here" style="background: rgb(100, 100, 100);"></div>
+    <div class="bln">
+      <button id="RR">R</button>
+      <input id="Rr" type="range" min="0" max="255" onmousemove="inrange(this)">
+      <button id="GG">G</button>
+      <input id="Gr" type="range" min="0" max="255" onmousemove="inrange(this)">
+      <button id="BB">B</button>
+      <input id="Br" type="range" min="0" max="255" onmousemove="inrange(this)">
+    </div>
+    <div class="bbt">
+      <button id="plu">+</button>
+      <button id="min">-</button>
+      <button id="ran">random</button>
+    </div>
+    <script>
+        //取得div 及R G B各別三鍵的值以變數宣告 
+            let rgb=document.getElementById("rgb");
+            let btnR=document.getElementById("RR");
+            let btnG=document.getElementById("GG");
+            let btnB=document.getElementById("BB");
+            // 三鍵以listener監聽行為
+            btnR.addEventListener("click",crolor);
+            btnG.addEventListener("click",cgolor);
+            btnB.addEventListener("click",cbolor);
+
+            // 將三鍵的值以亂數顯示
+            btnR = Math.floor(Math.random()*256);
+            btnG = Math.floor(Math.random()*256);
+            btnB = Math.floor(Math.random()*256);
+            
+            
+            
+            
+            // 呼叫隨機顯色函式
+            rColor();
+            
+            // 讓RGB拉桿取得現有隨機色的數值
+            // rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+            document.getElementById("Rr").value=btnR;
+            document.getElementById("Gr").value=btnG;
+            document.getElementById("Br").value=btnB;
+
+            // 宣告連續按鈕
+            var　pp1=document.getElementById("plu");
+            var　mm1=document.getElementById("min");
+            var　rr1=document.getElementById("ran");
+/////////////////連續增加/////////////////
+            pp1.onmousedown = function(plus){
+              go = setInterval(function(){
+                if(btnR <255) btnR++;
+                if(btnG <255) btnG++;
+                if(btnB <255) btnB++;
+                rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                document.getElementById("Rr").value=btnR;
+                document.getElementById("Gr").value=btnG;
+                document.getElementById("Br").value=btnB;
+                rgbtohex();
+              },10);
+            };
+            pp1.onmouseup = function(plus){
+                clearInterval(go);
+            }
+/////////////////連續減少/////////////////         
+            mm1.onmousedown = function(plus){
+              go = setInterval(function(){
+                if(btnR>0) btnR--;
+                if(btnG>0) btnG--;
+                if(btnB>0) btnB--;
+                rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                document.getElementById("Rr").value=btnR;
+                document.getElementById("Gr").value=btnG;
+                document.getElementById("Br").value=btnB;
+                rgbtohex();
+              },10);
+            };
+            mm1.onmouseup = function(plus){
+                clearInterval(go);
+            }
+
+/////////////////連續隨機/////////////////
+            rr1.onmousedown = function(plus){
+              go = setInterval(function(){
+                btnR = Math.floor(Math.random()*256);
+                btnG = Math.floor(Math.random()*256);
+                btnB = Math.floor(Math.random()*256);
+                rColor();
+                rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                document.getElementById("Rr").value=btnR;
+                document.getElementById("Gr").value=btnG;
+                document.getElementById("Br").value=btnB;
+                rgbtohex();
+              },10);
+            };
+            rr1.onmouseup = function(plus){
+                clearInterval(go);
+            }
+
+/////////////////印出文字/////////////////
+            rgbtohex();
+            function rgbtohex(){
+              
+              rgb.style.color="rgb("+(255-btnR)+","+(255-btnG)+","+(255-btnB)+")"
+              rgb.style.fontSize="50px"
+              SR=Number(btnR).toString(16);
+              SG=Number(btnG).toString(16);
+              SB=Number(btnB).toString(16);
+              if(SR.length < 2){
+                SR="0"+SR
+              };
+              if(SG.length < 2){
+                SG="0"+SG
+              };
+              if(SB.length < 2){
+                SB="0"+SB
+              };
+              // rgb.innerHTML = `#${Number(btnR).toString(16)}${Number(btnG).toString(16)}${Number(btnB).toString(16)}`
+              rgb.innerHTML = `#${SR}${SG}${SB}`
+              
+            }
+
+            //隨機出色
+            function rColor(){
+              rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+              rgbtohex();
+              return "rgb("+btnR+","+btnG+","+btnB+")";
+              };
+
+            //R鍵改色
+            function crolor(){
+                RR=prompt("請輸入數值","0~255");
+                if((RR<0) || (256<RR)){
+                    alert("請重新輸入");
+                    return crolor();
+                }else{
+                  btnR=RR;
+                  rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                  document.getElementById("Rr").value=btnR;
+                  rgbtohex();
+                }
+            }
+            //G鍵改色
+            function cgolor(){          
+                GG=prompt("請輸入數值","0~255");
+                if((GG<0) || (256<GG)){
+                    alert("請重新輸入");
+                    return color();
+                }else{
+                    btnG=GG;
+                    rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                    document.getElementById("Gr").value=btnG;
+                    rgbtohex();
+                }
+            }
+            //B鍵改色
+            function cbolor(){
+                BB=prompt("請輸入數值","0~255");
+                if((BB<0) || (256<BB)){
+                    alert("請重新輸入");
+                    return color();
+                }else{
+                    btnB=BB;
+                    rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                    document.getElementById("Br").value=btnB;
+                    rgbtohex();
+                }
+            }
+        
+            // 拉桿調色
+            function inrange(labar){
+                switch (labar.id){
+                    case 'Rr' :
+                    btnR=labar.value;
+                        rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                        rgbtohex()
+                    break;
+                    case 'Gr' :
+                        btnG=labar.value;
+                        rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")"; 
+                        rgbtohex()               
+                    break;
+                    case 'Br' :
+                        btnB=labar.value;
+                        rgb.style.background="rgb("+btnR+","+btnG+","+btnB+")";
+                        rgbtohex()
+                    break;
+                }
+            }
+            function checkcc(te){
+              console.log("HEX:"+te.toString(16))
+            }
+            
+            
+    </script>
+  </body>
+</html>
