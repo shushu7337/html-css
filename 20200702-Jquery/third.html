@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery third</title>
+    <style>
+        .blue{
+            width: 300px;
+            height: 300px;
+            background: lightblue;
+        }
+        .red{
+            width: 300px;
+            height: 300px;
+            background: lightcoral;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <button id="touch">Toggle</button>
+    <button id="show">Show</button>
+    <button id="hide">Hide</button>
+    <button id="fadeout">FadeOut</button>
+    <button id="fadein">FadeIn</button>
+    <button id="fadetoggle">FadeToggle</button>
+    <button id="fadeto">FadeTo</button>
+    <button id="slideToggle">slideToggle</button>   <!--垂直-->
+    <button id="stop">stop</button>   <!--暫停-->
+    <button id="self">自訂</button>   
+    <button id="reself">回復自訂</button>   
+
+    <hr>
+    <div class="red"></div>
+    <div class="blue"></div>
+    <script>
+        // 可 自訂 fast normal slow 
+        
+        // toggle
+        $("#touch").click(function(){
+            // $(".red").toggle("fast");
+            $(".red").toggle(3000,function(){
+                $(".red").toggle(3000)
+            })
+        })
+
+        $("#show").click(function(){
+            $(".red").show("slow");
+        })
+
+        $("#hide").click(function(){
+            $(".red").hide("slow");
+        })
+
+        // fade 
+        $("#fadetoggle").click(function(){  
+            $(".blue").fadeToggle(1000,()=>{
+                alert("fade Done!!");
+            });
+        })
+        $("#fadeout").click(function(){
+            $(".blue").fadeOut();
+        })
+        $("#fadein").click(function(){  
+            $(".blue").fadeIn();
+        })
+        $("#fadeto").click(function(){  
+            $(".red").fadeTo(500,0,function(){
+                $(".red").fadeTo(500,100);
+            });
+        })
+
+        // slideToggle
+        $("#slideToggle").click(function(){  
+            $(".red").slideToggle(500,function(){
+                $(".red").delay(1000).slideToggle(500);
+            });
+        })
+    
+        // 暫停動畫
+        $("#stop").click(function(){
+            $(".red").stop()
+        })
+        
+        // 自訂動畫
+        $("#self").click(function(){
+            $(".blue").animate({
+                backgroundColor:"black",
+                width:"0"
+            },3000)
+        })
+        $("#reself").click(function(){
+            $(".blue").animate({
+                backgroundColor:"gray",
+                width:"300"
+            },3000)
+        })
+
+    </script>
+</body>
+</html>
