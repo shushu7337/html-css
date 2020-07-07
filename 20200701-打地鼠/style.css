@@ -3,6 +3,8 @@ body{
     display: flex;
     justify-content: center;
     text-align: center;
+    background: url("unnamed.jpg") no-repeat fixed ;
+    background-size: cover;
     
 }
 .content{
