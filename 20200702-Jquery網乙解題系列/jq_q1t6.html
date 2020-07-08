@@ -45,17 +45,21 @@
             num = myjson.length;
         }
 
+
         // 要判斷現在是不是最上面那張
+
+        //假設今天有七張照片的話 編號為 0 1 2 3 4 5 6 ，以上面的todo function來說會一次顯示三張分別為0 1 2
         function pp(x){
             if(x==1 && nowpage > 0){   //讓圖片往上跑
-                nowpage --;
-                $(`#ssaa${nowpage}`).slideToggle();
-                $(`#ssaa${nowpage+3}`).slideToggle();
+                nowpage --;   //先讓nowpage相減
+
+                $(`#ssaa${nowpage}`).slideToggle();   //原本的hide改成show
+                $(`#ssaa${nowpage+3}`).slideToggle();   //原本的show改成hide
             }
             if(x==2 && nowpage < num-3){   //讓圖片往下跑
-                $(`#ssaa${nowpage}`).slideToggle();
-                $(`#ssaa${nowpage+3}`).slideToggle();
-                nowpage ++;
+                $(`#ssaa${nowpage}`).slideToggle();   //預設第一張開始為0 開始向下滑動的時候 第0張要由原本的show轉為hide
+                $(`#ssaa${nowpage+3}`).slideToggle();   //第四張 3由原本的 hide轉為show
+                nowpage ++;   //再讓nowpage相加
             }
         }
 

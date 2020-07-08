@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三題示範</title>
+    <!-- slick css-->
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <style>
+        body{
+            background:rgb(90, 95, 100);
+            color: lightyellow;
+            margin: 0;
+        }
+        #main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            text-align: center;
+        }
+        .control img{
+            width: 90px;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+        .control{
+            width: 400px;
+            margin: 10px 30px;
+        }
+        #box{
+            flex: 0 0 420px;
+            overflow: hidden;
+        }
+        #ani_zone{
+            transform:scale(1);
+            transition: transform:0.5s;
+            position:relative;
+        }
+        #ani_zone.scale{
+            transform:scale(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- div#main>h1+div#box>div#ani_zone>img+p{片名}^^div.control -->
+    <div id="main">
+        <h1>預告片介紹</h1>
+        <div id="box">
+            <div id="ani_zone">
+                <img>
+                <p>片名</p>
+            </div>
+        </div>
+        <div class="control"></div>
+    </div>
+
+    <script>
+        let effec = 0, myimg = new Object(),pause=null;    //設定為全域變數
+
+        $.getJSON("data.json",function(result){
+            effect= result.q3t4.effect;     //number
+            myimg= result.q3t4.img;     //object
+           
+            //DOM 寫入
+
+            // 撈出圖片並塞入 <div class="control"></div> 這個區域
+            for (const key in myimg){
+                $(".control").append(
+                    `<div><img src="${myimg[key]}" alt="${key}" class="min-img"></div>`
+                )
+            }   
+            // 初始化主圖文
+            $("#ani_zone").find("img").attr("src",myimg[Object.keys(myimg)[0]]);
+            $("#ani_zone").find("p").text(Object.keys(myimg)[0]);
+
+            //slick 優化
+            $('.control').slick({
+              infinite: true,
+              slidesToShow: 4,
+              slidesToScroll: 4,
+              dots:true
+            });
+
+            //點擊事件
+            $(".min-img").click(function(){
+                let key=$(this).attr("alt");
+                swap(key);
+                clearInterval(pause);
+                autoplay(key);
+            })
+
+            //初始自動撥放
+            autoplay(Object.keys(myimg)[0]);
+        });
+
+        // 主圖文切換處理 who 為 new display
+        function swap(who){
+            switch (effect) {
+                case 1: //fadeInOut
+                    $("#ani_zone").fadeToggle(function(){
+                        $(this).find("img").attr("src",myimg[who]);
+                        $(this).find("p").text(who);
+                        $(this).fadeToggle();
+                    })
+                break;
+                case 2: //slide
+                    $("#ani_zone").slideToggle(function(){
+                            $(this).find("img").attr("src",myimg[who]);
+                            $(this).find("p").text(who);
+                            $(this).slideToggle();
+                        });
+                break;
+                case 3:
+                    $("#ani_zone").toggleClass("scale");
+                    setTimeout(()=>{    //delay 0,5 秒去做
+                        $("#ani_zone").find("img").attr("src",myimg[who]);
+                        $("#ani_zone").find("p").text(who);
+                        $("#ani_zone").toggleClass("scale"); //show to scale(1)
+                    },300);
+
+                break;
+                case 4:
+                $("#ani_zone").animate({
+                        left:"-100%"
+                    },function(){
+                            $(this).find("img").attr("src",myimg[who]);
+                            $(this).find("p").text(who);
+                            $(this).css("left","150%"); //瞬移到右邊
+                            $(this).animate({
+                                left:"0"      //再從右邊回來，如果沒有瞬移到右邊就會是普通的左出左進
+                            })
+                        });
+                break;
+                
+            }
+        }
+
+        // autoplay  提供一個目前圖片的位置處(片名)後，去尋找下一個NEW資料
+        function autoplay(begin){
+            let nowNum=Object.keys(myimg).indexOf(begin);   //是一個數字， 將片名 轉換成第幾張(array)圖的數字
+            
+            pause=setInterval(() => {
+                // nowNum++;   //N 循環 ++
+                nowNum=(nowNum+1)%(Object.keys(myimg).length)   //若共有6張 目前在第六張 (5+1)%6 餘數為0
+                let key=Object.keys(myimg)[nowNum]; //num to title(key)
+                //num to title(key)
+                swap(key)
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
