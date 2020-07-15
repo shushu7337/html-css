@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>編號</td>
+                <td>動物名稱</td>
+                <td>重量</td>
+                <td>簡介</td>
+                <td>更新日期</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td colspan="6"><hr></td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" style="text-align: center;padding:10px;">
+                    <button>新增</button>
+                    <button onclick="loading()">加載10筆</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        let start=0;
+        function loading(){
+            $.post("api.php?do=select",{start},function(result) {
+                //DOM生成
+                // console.log("done")
+                if(result!="fail"){
+                    $("tbody").append(result); //DOM生成
+                    $(".mdy").click(chginput); //事件 指定 DOM
+                start+=10;
+                }else alert("已無資料")
+            })
+        }
+        loading();
+
+        // 修改 (此處DOM不存在)
+        function chginput(){
+            // console.log(this);  //此處的this式在DOM生成內的世界觀
+            let item=$(this).parent().siblings();   //keep 5 date
+            // 內容替換
+            item.parent().html(`    //
+                <td><input type="hidden" name="id" value="${item.eq(0).text()}">${item.eq(0).text()}</td>
+                <td><input name="name" value="${item.eq(1).text()}"></td>
+                <td><input name="weight" value= "${item.eq(2).text()}"></td>
+                <td><input name="info" value= "${item.eq(3).text()}"></td>
+                <td>${item.eq(4).text()}</td>
+                <td>
+                  <button onclick="chgtxt">修改</button>
+                </td>
+            `);
+        }
+        function chgtxt(){
+            // 變回純文字
+        }
+    </script>
+</body>
+</html>
