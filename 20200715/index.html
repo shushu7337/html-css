@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="jquery-3.5.1.min.js"></script>
+    <style>
+        .insertZone{
+            position:fixed;
+            background: #333a;
+            color: #eee;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            left:0;
+            top:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-basis: 50%;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="insertZone" style="display:none;"></div>
     <table width="100%">
         <thead>
             <tr>
@@ -25,7 +44,7 @@
         <tfoot>
             <tr>
                 <td colspan="6" style="text-align: center;padding:10px;">
-                    <button>新增</button>
+                    <button onclick="active()">新增</button>
                     <button onclick="loading()">加載10筆</button>
                 </td>
             </tr>
@@ -48,6 +67,7 @@
 
         // 修改 (此處DOM不存在)
         function chginput(){
+            //將table tr>td 換成input
             // console.log(this);  //此處的this式在DOM生成內的世界觀
             let item=$(this).parent().siblings();   //keep 5 date
             // 內容替換
@@ -58,12 +78,108 @@
                 <td><input name="info" value= "${item.eq(3).text()}"></td>
                 <td>${item.eq(4).text()}</td>
                 <td>
-                  <button onclick="chgtxt">修改</button>
+                  <button onclick="chgtxt(this)">儲存</button>
                 </td>
             `);
         }
-        function chgtxt(){
+        // let item=null;
+        function chgtxt(who){
             // 變回純文字
+            // let item = $(who).parent().siblings();  //keep 5 data
+            
+            let data=$(who).parents("tr").find("input").serialize();    //serialize()是將任何物件轉換成字串
+            // console.log(data,typeof(data));
+
+            // $.post("api.php?do=update",{id:"1",name:"AAA",weight:"bbb",info:"ccc"},function(){
+            $.post("api.php?do=update",data,function(result){
+                // console.log(result);
+                // result 內是後端告訴我的系統更新之時間文字
+                
+                let item = $(who).parent().siblings();
+                let
+                    id=item.eq(0).text(),
+                    name=item.eq(1).children().val(),
+                    weight=item.eq(2).children().val(),
+                    info=item.eq(3).children().val();
+                    console.log(weight);
+                
+                item.parent().html(`
+                <td>${id}</td>
+                <td>${name}</td>
+                <td>${weight}</td>
+                <td>${info}</td>
+                <td>${result}</td>
+               
+                <td>
+                  <button class="mdy"">修改</button>
+                  <button onclick="del(this)">刪除</button>
+                </td>
+
+                `)
+
+                $(".mdy").click(chginput);  //因為dom又變新的出來瀏覽器不認識，所以又要整體.mdy再宣告click事件
+            });
+
+
+        }
+    
+        // let ttry=null;   全域變數測試
+        // 三種拿到該欄位的id值
+        // $(ttry).parent().siblings().eq(0).text();
+        // $(ttry).parents("tr").chidren().eq(0).text();
+        // $(ttry).parents("tr").find("td").eq(0).text();
+        function del(e){
+            let id=$(e).parent().siblings().eq(0).text();
+            // ttry=e;   全域變數測試
+            // console.log(e);
+            $.post("api.php?do=delete",{id},function(re){
+                // console.log(id)
+                
+                // if(re=="deleted") conslog.("已刪除");
+                // else console.log("失敗");
+
+                // if(re) console.log("已刪除");
+                if(re) $(e).parent().parent().remove();
+                
+            });
+        }
+        function active(){
+            $(".insertZone").html(`
+            <!-- 避免透過form表單傳值可以取消form表單或者button type改為button -->
+            
+                <form>
+                    <h1>新增動物資料</h1>
+                    <hr>
+                    <p>動物 : <input type="text" name="name"></p>
+                    <p>重量 : <input type="text" name="weight"></p>
+                    <p>簡介 : <input type="text" name="info"></p>
+                    <hr>
+                    <p>
+                        <input type="button" onclick="sendAdd(this)" value="提交">
+                        <button type="reset" onclick="closeZone()">取消</button>
+                    </p>
+                </form>
+            `);
+            $(".insertZone").fadeIn();
+        }
+
+        function closeZone(){
+            $(".insertZone").fadeOut();
+        }
+        function sendAdd(who){
+            let data=$(who).parents("form").find("input").serialize();  //用data來接得到的input資料
+            $.post("api.php?do=insert",data,function(re){   //將資料傳到api內並做callback()
+                // 確認api有收到的確認
+                // if(re=="inserted"){
+                //     console.log(123);
+                // }
+                $("tbody").empty();
+                start=0;
+                loading();
+                // 關閉燈箱
+                // $(".insertZone").fadeOut();      //type 1 
+                closeZone();    //type 2
+            })
         }
     </script>
 </body>

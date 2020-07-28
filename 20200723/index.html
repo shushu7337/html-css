@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <form>
+        電影 : <select name="mm" id="sm" onchange="chgdd()"></select>
+        日期 : <select name="dd" id="sd" onchange="chgtt()"></select>
+        場次 : <select name="tt" id="st"></select>
+        <input type="submit" value="確定">
+    </form>
+    <script>
+        
+        // 下列兩個為一樣的東西
+
+        // $.post("api.php?do=getmovie",function(re){
+        //     console.log(re);
+        // });
+        $.get("api.php",{do:"getmovie"},function(re){
+            // data=JSON.parse(re);
+            // console.log(re,typeof(re));
+            // console.log(data,typeof(data));
+
+            for (const row of re) {
+                content=`<option value="${row.id}">${row['movie']}</option>`;
+                // $("#sm").append(`<option>${row['movie']}</option>`);
+                $("#sm").append(content);
+            }
+            chgdd();    //先讓時間讀出來後顯示
+        },"json");
+        
+        // $.getJSON("api.php?do=getmovie",function(re){
+        //     // console.log(re,typeof(re));
+        //     for (const row of re) {
+        //         content=`<option value="${row.id}">${row['movie']}</option>`;
+        //         // $("#sm").append(`<option>${row['movie']}</option>`);
+        //         $("#sm").append(content);
+        //     }
+        //     chgdd();    //先讓時間讀出來後顯示
+        // });
+
+        function chgdd(){   //專門負責查看sm.val進行ajax翻新到#sd*
+            let mv=$("#sm").val();
+            // console.log(mv);
+            $.get("api.php",{do:"getdate",id:mv},function(re){
+                // console.log(re);
+                let content="";
+                for(const row of re){
+                    // ****不要使用append寫法 因為會一直加上去而不會消失
+                    // $("#sd").append(`<option value="${row.id}">${row['date']}</option>`)
+                    // ****
+                    content+=`<option value="${row.id}">${row['date']}</option>`;
+                    $("#sd").html(content);
+                }
+                chgtt();    //顯示時間
+            },"json");
+
+        }
+        function chgtt(){
+            // console.log(123);
+            // let mv=$("#sm").val();
+            let dv=$("#sd").val();
+            $.get("api.php",{do:"gettime",id:dv},function(re){
+                // 這裡後端會把整個該電影日期之資料表回來，我們要自己想辦法設計option
+                // console.log(re);
+                let sellObj=[
+                    {txt:"10:00~12:00",ticket:20},
+                    {txt:"12:00~14:00",ticket:20},
+                    {txt:"14:00~16:00",ticket:20},
+                    {txt:"16:00~18:00",ticket:20},
+                    {txt:"18:00~20:00",ticket:20},
+                    {txt:"20:00~22:00",ticket:20},
+                    {txt:"20:00~24:00",ticket:20}
+                ];
+                for (const row of re) {
+                    // sellObj[1].ticket=sellObj.ticket-2;  如果賣掉的話就把票券-2 寫法1
+                    sellObj[row['time']-1].ticket-=row['sellout'];
+                }
+                // console.log(sellObj);
+                let content="";
+                let count=0;
+                
+                let nowtime=new Date();     //取得今日日期  object
+                let selectDay=new Date($("#sd>option:selected").text());      //被選擇到的日期 string
+                
+
+                // console.log(nowtime,selectDay,typeof(nowtime),typeof(selectDay));
+                // console.log(nowtime.toDateString(),"~~~",selectDay.toDateString);   //加入toDateString來將物件轉換成同樣可以比較的形式
+                //10=>第1場,11=>第1場,12=>2
+                let timeline=Math.floor(nowtime.getHours()/2)-4;
+                console.log(timeline);
+
+
+                for (const row of sellObj){
+                    count++;
+                    if(count<=timeline && nowtime.toDateString()==selectDay.toDateString()) continue;   //直接段開連結，不跑下面的程式碼了 (ex:1<3的話直接跳過下面)
+                    content+=`<option value="${count}">${row.txt} 剩餘座位${row.ticket}</option>`;
+                }
+                $("#st").html(content);
+            },"json")
+        }
+        
+    </script>
+</body>
+</html>

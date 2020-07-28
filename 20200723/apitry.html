@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://hotels4.p.rapidapi.com/locations/search?locale=en_US&query=new%20york",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "hotels4.p.rapidapi.com",
+		"x-rapidapi-key": "SIGN-UP-FOR-KEY"
+	}
+}
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
+</script>
+</html>
