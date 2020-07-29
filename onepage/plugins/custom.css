@@ -108,3 +108,23 @@ footer > .position-fixed{
 .nav-link{
     transition: 1s ease;
 }
+
+/*for scroll spy*/
+header#shumenu a:after {
+    content:"";
+    display:block;
+    height: 0.7px;
+    width: 0;
+    background: #bbbbbb;
+    margin:2px 0;
+    transition:width 2s ease;
+}
+
+header#shumenu a.active:after{
+    width:100%;
+}
+
+/* for pointer
+footer#scrolls {
+    transition: 1s ease;
+} */
