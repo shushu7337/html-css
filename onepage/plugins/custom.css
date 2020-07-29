@@ -124,7 +124,12 @@ header#shumenu a.active:after{
     width:100%;
 }
 
-/* for pointer
-footer#scrolls {
+/* for pointer */
+footer #scrolls {
+    opacity: 0;
     transition: 1s ease;
-} */
+}
+
+header {
+    transition: 1s ease;
+}

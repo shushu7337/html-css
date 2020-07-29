@@ -46,12 +46,21 @@ $(document).ready(function(){
 
     }
     function showon(){
-        nowat=$(window).scrollTop();
-        id=$("#shuslider").height();
+        let    totalw = $(window).innerWidth(),
+                nowat=$(window).scrollTop(),
+                id=$("#shuslider").height();
         if(nowat<id){
-            $("#scrolls").css('opacity',0);
+            if(totalw >= 769){
+                $("#scrolls").css('opacity',0);
+                $("header").removeClass('bg-dark');
+            }else{
+                $("#scrolls").css('opacity',1);
+                $("header").addClass('bg-dark');
+            }
+            
         }else{
             $("#scrolls").css('opacity',1);
+            $("header").addClass('bg-dark');
         }
         // console.log($("#scrolls").css('opacity'))
     }
